@@ -162,6 +162,24 @@
   .empty-state { display: none; background: white; border-radius: 10px; padding: 40px 20px; text-align: center; color: #A0AEC0; font-size: 0.95rem; border: 2px dashed #E2E8F0; }
   .empty-state.show { display: block; }
   footer { margin-top: 28px; text-align: center; font-size: 0.72rem; color: #A0AEC0; }
+
+  /* ── Done / Notes (Cloudflare-backed) ──────────────────────────── */
+  .field-actions { padding: 10px 18px; display: flex; gap: 10px; align-items: center; border-top: 1px solid #EDF2F7; flex-wrap: wrap; }
+  .done-btn { background: #F0FFF4; color: #276749; border: 2px solid #9AE6B4; border-radius: 8px; padding: 8px 18px; font-size: 0.88rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 7px; transition: background 0.15s, border-color 0.15s, transform 0.1s; }
+  .done-btn:hover:not(:disabled) { background: #C6F6D5; border-color: #68D391; transform: translateY(-1px); }
+  .done-btn.is-done { background: #276749; color: white; border-color: #276749; cursor: default; }
+  .done-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+  .field-notes-wrap { flex: 1; min-width: 220px; }
+  .field-notes-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #A0AEC0; margin-bottom: 4px; }
+  .field-notes-area { width: 100%; min-height: 60px; padding: 8px 10px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.85rem; color: #2D3748; resize: vertical; font-family: inherit; line-height: 1.5; transition: border-color 0.15s; background: #FAFAFA; }
+  .field-notes-area:focus { outline: none; border-color: #38A169; background: white; }
+  .field-notes-area.saving { border-color: #D69E2E; }
+  .field-notes-area.saved  { border-color: #38A169; }
+  .field-notes-status { font-size: 0.68rem; color: #A0AEC0; margin-top: 3px; min-height: 14px; }
+  /* When a card is marked done: mute it and show green top border */
+  .order-card.field-done { border-left-color: #38A169; opacity: 0.82; }
+  .order-card.field-done .schedule-banner { background: #F0FFF4 !important; color: #276749 !important; border-bottom-color: #9AE6B4 !important; animation: none !important; }
+  .order-card.field-done .schedule-banner .sched-label::before { content: "✅ "; }
   @media print { body { background: white; padding: 0; } header { box-shadow: none; } header::before { display: none; } .summary-bar, .activity-toggle, .activity-log, .archive-btn, .restore-btn, .filter-hint, .archive-section, footer { display: none; } .order-card { box-shadow: none; border: 1px solid #ccc; margin-bottom: 16px; page-break-inside: avoid; } .order-card.filtered-out { display: block !important; } }
 </style>
 </head>
@@ -215,13 +233,13 @@
 <div class="orders">
 
   <!-- INST-2026-002 · Dale Miller -->
-  <div class="order-card scheduled" data-inst-id="INST-2026-002" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-002 · —</div><div class="order-name">Dale Miller</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-002" title="Archive Dale Miller" aria-label="Archive Dale Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-002" title="Restore Dale Miller" aria-label="Restore Dale Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Dale Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Rough-wire job — lighting, panel, dedicated circuits, garage receptacles</div></div></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class=""><span class="note-cat">Layout</span>Main panel goes in the UTILITY ROOM</li><li class=""><span class="note-cat">Layout</span>6 x 8&#x27; tubelights — rough-wire only</li><li class=""><span class="note-cat">Layout</span>Wire in dedicated circuit for HOT WATER HEAT</li><li class=""><span class="note-cat">Layout</span>Freezer receptacle: WEST wall, toward the NORTH end, 18&quot; from floor — run in PVC CONDUIT</li><li class=""><span class="note-cat">Layout</span>Washing-machine receptacle: SOUTH wall of GARAGE, 18&quot; from floor</li></ul></div><div class="pick-list"><div class="pick-label">📦 Materials / BOM</div><table class="pick-table"><tr><th class="check"></th><th>Item</th><th>Qty</th></tr><tr><td class="check"><input type="checkbox"></td><td>8&#x27; Tubelight (rough-wired)</td><td class="qty">6</td></tr></table></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Rough-wire job logged for today. Took the slot Mose Miller was holding (Mose pushed to 4/29).</li></ul></div></div>
+  <div class="order-card scheduled" data-inst-id="INST-2026-002" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-002 · —</div><div class="order-name">Dale Miller</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-002" title="Archive Dale Miller" aria-label="Archive Dale Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-002" title="Restore Dale Miller" aria-label="Restore Dale Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Dale Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Rough-wire job — lighting, panel, dedicated circuits, garage receptacles</div></div></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class=""><span class="note-cat">Layout</span>Main panel goes in the UTILITY ROOM</li><li class=""><span class="note-cat">Layout</span>6 x 8&#x27; tubelights — rough-wire only</li><li class=""><span class="note-cat">Layout</span>Wire in dedicated circuit for HOT WATER HEAT</li><li class=""><span class="note-cat">Layout</span>Freezer receptacle: WEST wall, toward the NORTH end, 18&quot; from floor — run in PVC CONDUIT</li><li class=""><span class="note-cat">Layout</span>Washing-machine receptacle: SOUTH wall of GARAGE, 18&quot; from floor</li></ul></div><div class="pick-list"><div class="pick-label">📦 Materials / BOM</div><table class="pick-table"><tr><th class="check"></th><th>Item</th><th>Qty</th></tr><tr><td class="check"><input type="checkbox"></td><td>8&#x27; Tubelight (rough-wired)</td><td class="qty">6</td></tr></table></div><div class="field-actions"><button type="button" class="done-btn" data-inst-id="INST-2026-002" aria-label="Mark INST-2026-002 done">✅ Mark Done</button><div class="field-notes-wrap"><div class="field-notes-label">📝 Field Notes</div><textarea class="field-notes-area" data-inst-id="INST-2026-002" rows="2" placeholder="Add notes here… (auto-saves)"></textarea><div class="field-notes-status" id="notes-status-INST-2026-002"></div></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Rough-wire job logged for today. Took the slot Mose Miller was holding (Mose pushed to 4/29).</li></ul></div></div>
 
   <!-- INST-2026-003 · Matt A Beechy -->
-  <div class="order-card scheduled" data-inst-id="INST-2026-003" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-003 · —</div><div class="order-name">Matt A Beechy</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-003" title="Archive Matt A Beechy" aria-label="Archive Matt A Beechy">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-003" title="Restore Matt A Beechy" aria-label="Restore Matt A Beechy">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Matt A Beechy</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Generator cord install</div></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Gen cord install logged for today.</li></ul></div></div>
+  <div class="order-card scheduled" data-inst-id="INST-2026-003" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-003 · —</div><div class="order-name">Matt A Beechy</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-003" title="Archive Matt A Beechy" aria-label="Archive Matt A Beechy">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-003" title="Restore Matt A Beechy" aria-label="Restore Matt A Beechy">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Matt A Beechy</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Generator cord install</div></div></div><div class="field-actions"><button type="button" class="done-btn" data-inst-id="INST-2026-003" aria-label="Mark INST-2026-003 done">✅ Mark Done</button><div class="field-notes-wrap"><div class="field-notes-label">📝 Field Notes</div><textarea class="field-notes-area" data-inst-id="INST-2026-003" rows="2" placeholder="Add notes here… (auto-saves)"></textarea><div class="field-notes-status" id="notes-status-INST-2026-003"></div></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Gen cord install logged for today.</li></ul></div></div>
 
   <!-- INST-2026-001 · Mose Miller -->
-  <div class="order-card scheduled" data-inst-id="INST-2026-001" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-001 · —</div><div class="order-name">Mose Miller</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-001" title="Archive Mose Miller" aria-label="Archive Mose Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-001" title="Restore Mose Miller" aria-label="Restore Mose Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 2 days</div><div class="sched-date">April 29, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Mose Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Solar install — west wall preferred (flexible)</div></div></div><div class="stops-list"><div class="stops-label">🚛 Pre-Install Stops</div><ul><li><span class="stop-loc">📍 Zonna</span><span>Pick up the THICKEST K2 Rails before heading to site</span></li></ul></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class="preference"><span class="note-cat">Preference</span>West wall preferred for solar — but flexible, whatever works out</li><li class="access"><span class="note-cat">Access</span>Garage door panels can be removed if needed — Mose said it&#x27;s fairly simple to take a panel off</li><li class="condition"><span class="note-cat">Site Condition</span>Exhaust leak when motor runs — needs to be addressed/inspected</li></ul></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 27</span>First entry on install tracker. Scheduled for 2026-04-28.</li><li><span class="tl-date">Apr 28</span>Pushed from 2026-04-28 to 2026-04-29 (Dale Miller rough-wire job took today&#x27;s slot).</li></ul></div></div>
+  <div class="order-card scheduled" data-inst-id="INST-2026-001" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-001 · —</div><div class="order-name">Mose Miller</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-001" title="Archive Mose Miller" aria-label="Archive Mose Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-001" title="Restore Mose Miller" aria-label="Restore Mose Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 2 days</div><div class="sched-date">April 29, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Mose Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Solar install — west wall preferred (flexible)</div></div></div><div class="stops-list"><div class="stops-label">🚛 Pre-Install Stops</div><ul><li><span class="stop-loc">📍 Zonna</span><span>Pick up the THICKEST K2 Rails before heading to site</span></li></ul></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class="preference"><span class="note-cat">Preference</span>West wall preferred for solar — but flexible, whatever works out</li><li class="access"><span class="note-cat">Access</span>Garage door panels can be removed if needed — Mose said it&#x27;s fairly simple to take a panel off</li><li class="condition"><span class="note-cat">Site Condition</span>Exhaust leak when motor runs — needs to be addressed/inspected</li></ul></div><div class="field-actions"><button type="button" class="done-btn" data-inst-id="INST-2026-001" aria-label="Mark INST-2026-001 done">✅ Mark Done</button><div class="field-notes-wrap"><div class="field-notes-label">📝 Field Notes</div><textarea class="field-notes-area" data-inst-id="INST-2026-001" rows="2" placeholder="Add notes here… (auto-saves)"></textarea><div class="field-notes-status" id="notes-status-INST-2026-001"></div></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 27</span>First entry on install tracker. Scheduled for 2026-04-28.</li><li><span class="tl-date">Apr 28</span>Pushed from 2026-04-28 to 2026-04-29 (Dale Miller rough-wire job took today&#x27;s slot).</li></ul></div></div>
 
 </div>
 
@@ -372,6 +390,109 @@
     refreshCounts();
     updateArchiveHeader();
     applyFilter('all');
+  });
+})();
+
+
+// ── Cloudflare Worker state sync ─────────────────────────────────────────────
+(function () {
+  var API = 'https://fantastech-install-api.derek-7bd.workers.dev';
+  var saveTimers = {};
+
+  function setStatus(instId, msg, cls) {
+    var el = document.getElementById('notes-status-' + instId);
+    if (!el) return;
+    el.textContent = msg;
+    el.style.color = cls === 'saved' ? '#38A169' : cls === 'saving' ? '#D69E2E' : '#A0AEC0';
+  }
+
+  function applyState(instId, state) {
+    var card = document.querySelector('.order-card[data-inst-id="' + instId + '"]');
+    if (!card) return;
+
+    // Done state
+    var btn = card.querySelector('.done-btn[data-inst-id="' + instId + '"]');
+    if (state.done) {
+      card.classList.add('field-done');
+      if (btn) { btn.textContent = '✅ Done'; btn.classList.add('is-done'); btn.disabled = true; }
+    }
+
+    // Notes
+    var ta = card.querySelector('.field-notes-area[data-inst-id="' + instId + '"]');
+    if (ta && state.notes != null) {
+      ta.value = state.notes;
+    }
+  }
+
+  function loadState() {
+    fetch(API + '/state')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        Object.keys(data).forEach(function (id) { applyState(id, data[id]); });
+      })
+      .catch(function (err) { console.warn('Install tracker: could not load state', err); });
+  }
+
+  function saveField(instId, patch) {
+    return fetch(API + '/state/' + instId, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(patch)
+    }).then(function (r) { return r.json(); });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Load persisted state on page open
+    loadState();
+
+    // Done buttons
+    document.querySelectorAll('.done-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.dataset.instId;
+        btn.disabled = true;
+        btn.textContent = '⏳ Saving…';
+        saveField(id, { done: true })
+          .then(function () {
+            btn.textContent = '✅ Done';
+            btn.classList.add('is-done');
+            var card = document.querySelector('.order-card[data-inst-id="' + id + '"]');
+            if (card) card.classList.add('field-done');
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.textContent = '✅ Mark Done';
+            alert('Could not save — check your connection and try again.');
+          });
+      });
+    });
+
+    // Notes textareas — auto-save 1.2s after last keystroke
+    document.querySelectorAll('.field-notes-area').forEach(function (ta) {
+      var id = ta.dataset.instId;
+      ta.addEventListener('input', function () {
+        setStatus(id, 'Unsaved…', '');
+        ta.classList.add('saving');
+        ta.classList.remove('saved');
+        clearTimeout(saveTimers[id]);
+        saveTimers[id] = setTimeout(function () {
+          setStatus(id, 'Saving…', 'saving');
+          saveField(id, { notes: ta.value })
+            .then(function () {
+              setStatus(id, 'Saved ✓', 'saved');
+              ta.classList.remove('saving');
+              ta.classList.add('saved');
+              setTimeout(function () {
+                setStatus(id, '', '');
+                ta.classList.remove('saved');
+              }, 2200);
+            })
+            .catch(function () {
+              setStatus(id, 'Save failed — check connection', '');
+              ta.classList.remove('saving');
+            });
+        }, 1200);
+      });
+    });
   });
 })();
 

@@ -1,2 +1,2 @@
-# fantastech-install-tracker
-Fantastech install job tracker dashboard
+# Fantastech Install Tracker
+Field install job dashboard.

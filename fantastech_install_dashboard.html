@@ -224,6 +224,8 @@
   .linked-order-badge { font-size:.72rem; background:#EBF8FF; color:#2B6CB0; border:1px solid #BEE3F8; border-radius:4px; padding:2px 8px; }
   .linked-products { margin-top:6px; display:flex; flex-wrap:wrap; gap:4px; }
   .linked-product-tag { font-size:.78rem; background:#F0FFF4; color:#276749; border:1px solid #9AE6B4; border-radius:4px; padding:2px 8px; }
+  .linked-address-row { font-size:0.82rem; color:#718096; margin-top:5px; padding-top:5px; border-top:1px solid #2D3748; }
+  .linked-address-row span { color:#CBD5E0; }
   @media print { body { background: white; padding: 0; } header { box-shadow: none; } header::before { display: none; } .summary-bar, .activity-toggle, .activity-log, .archive-btn, .restore-btn, .filter-hint, .archive-section, footer { display: none; } .order-card { box-shadow: none; border: 1px solid #ccc; margin-bottom: 16px; page-break-inside: avoid; } .order-card.filtered-out { display: block !important; } }
 </style>
 </head>
@@ -446,6 +448,22 @@
     var ce = document.getElementById('linked-contact-'+id);
     if (ce && parts.length) { ce.innerHTML = parts.join(' &nbsp; '); li.style.display = ''; }
 
+    if (inf.address && inf.address.address1) {
+      var ae = document.getElementById('linked-address-'+id);
+      if (!ae) {
+        ae = document.createElement('div');
+        ae.id = 'linked-address-'+id;
+        ae.className = 'linked-address-row';
+        if (li) li.appendChild(ae);
+      }
+      var city  = inf.address.city    || '';
+      var state = inf.address.state   || '';
+      var zip   = inf.address.postalCode || '';
+      var line2 = [city, state].filter(Boolean).join(', ') + (zip ? ' ' + zip : '');
+      ae.innerHTML = '📍 <span>' + inf.address.address1 + (line2 ? ', ' + line2 : '') + '</span>';
+      if (li) li.style.display = '';
+    }
+
     if (inf.lines && inf.lines.length) {
       var pe = document.getElementById('linked-products-'+id);
       if (pe) {
@@ -582,6 +600,7 @@
         isQuote:      selectedOrder.isQuote,
         date:         selectedOrder.date,
         lines:        selectedOrder.lines||[],
+        address:      selectedOrder.address||null,
       }};
       fetch(API+'/state/'+id,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(patch)})
         .then(function(r){return r.json();})

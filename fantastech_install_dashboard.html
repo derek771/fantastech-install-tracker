@@ -167,7 +167,7 @@
   .field-actions { padding: 10px 18px; display: flex; gap: 10px; align-items: center; border-top: 1px solid #EDF2F7; flex-wrap: wrap; }
   .done-btn { background: #F0FFF4; color: #276749; border: 2px solid #9AE6B4; border-radius: 8px; padding: 8px 18px; font-size: 0.88rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 7px; transition: background 0.15s, border-color 0.15s, transform 0.1s; }
   .done-btn:hover:not(:disabled) { background: #C6F6D5; border-color: #68D391; transform: translateY(-1px); }
-  .done-btn.is-done { background: #276749; color: white; border-color: #276749; cursor: default; }
+  .done-btn.is-done { background: #276749; color: white; border-color: #276749; cursor: pointer; }
   .done-btn:disabled { opacity: 0.7; cursor: not-allowed; }
   .field-notes-wrap { flex: 1; min-width: 220px; }
   .field-notes-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #A0AEC0; margin-bottom: 4px; }
@@ -414,7 +414,7 @@
     var btn = card.querySelector('.done-btn[data-inst-id="' + instId + '"]');
     if (state.done) {
       card.classList.add('field-done');
-      if (btn) { btn.textContent = '✅ Done'; btn.classList.add('is-done'); btn.disabled = true; }
+      if (btn) { btn.textContent = '↩ Undo Done'; btn.classList.add('is-done'); btn.disabled = false; }
     }
 
     // Notes
@@ -445,22 +445,30 @@
     // Load persisted state on page open
     loadState();
 
-    // Done buttons
+    // Done buttons — toggle on/off
     document.querySelectorAll('.done-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var id = btn.dataset.instId;
+        var markingDone = !btn.classList.contains('is-done');
         btn.disabled = true;
         btn.textContent = '⏳ Saving…';
-        saveField(id, { done: true })
+        saveField(id, { done: markingDone })
           .then(function () {
-            btn.textContent = '✅ Done';
-            btn.classList.add('is-done');
             var card = document.querySelector('.order-card[data-inst-id="' + id + '"]');
-            if (card) card.classList.add('field-done');
+            if (markingDone) {
+              btn.textContent = '↩ Undo Done';
+              btn.classList.add('is-done');
+              if (card) card.classList.add('field-done');
+            } else {
+              btn.textContent = '✅ Mark Done';
+              btn.classList.remove('is-done');
+              if (card) card.classList.remove('field-done');
+            }
+            btn.disabled = false;
           })
           .catch(function () {
             btn.disabled = false;
-            btn.textContent = '✅ Mark Done';
+            btn.textContent = btn.classList.contains('is-done') ? '↩ Undo Done' : '✅ Mark Done';
             alert('Could not save — check your connection and try again.');
           });
       });

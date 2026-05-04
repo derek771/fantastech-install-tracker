@@ -174,6 +174,102 @@
   .empty-state.show { display: block; }
   footer { margin-top: 28px; text-align: center; font-size: 0.72rem; color: #A0AEC0; }
 
+
+  /* ── inFlow link panel ──────────────────────────────────────────── */
+  .inflow-btn { background: transparent; border: 1px solid #CBD5E0; color: #718096; height: 30px; border-radius: 15px; cursor: pointer; font-size: 0.78rem; font-weight: 600; padding: 0 12px; display: flex; align-items: center; gap: 4px; white-space: nowrap; transition: background 0.12s, color 0.12s, border-color 0.12s; flex-shrink: 0; }
+  .inflow-btn:hover { background: #EBF8FF; color: #2B6CB0; border-color: #90CDF4; }
+  .inflow-btn.linked { background: #F0FFF4; color: #276749; border-color: #9AE6B4; }
+
+  .inflow-panel { display: none; padding: 14px 18px 16px; background: #F7FAFC; border-top: 2px solid #BEE3F8; }
+  .inflow-panel.open { display: block; }
+  .inflow-panel-title { font-size: 0.68rem; font-weight: 700; color: #2B6CB0; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+
+  .inflow-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .inflow-field { flex: 1; min-width: 180px; }
+  .inflow-label { font-size: 0.65rem; font-weight: 700; color: #A0AEC0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .inflow-search-wrap { position: relative; }
+  .inflow-search { width: 100%; padding: 7px 10px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.85rem; font-family: inherit; background: white; }
+  .inflow-search:focus { outline: none; border-color: #3182CE; }
+  .inflow-info { font-size: 0.82rem; color: #4A5568; padding: 5px 0 0; min-height: 18px; }
+
+  .inflow-dropdown { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #CBD5E0; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.12); z-index: 100; max-height: 200px; overflow-y: auto; display: none; }
+  .inflow-dropdown.open { display: block; }
+  .inflow-option { padding: 8px 12px; cursor: pointer; font-size: 0.85rem; color: #2D3748; border-bottom: 1px solid #F7FAFC; }
+  .inflow-option:last-child { border-bottom: none; }
+  .inflow-option:hover, .inflow-option.active { background: #EBF8FF; color: #2B6CB0; }
+  .inflow-option .opt-sub { font-size: 0.72rem; color: #A0AEC0; margin-top: 1px; }
+
+  /* Product dropdown */
+  .product-search-wrap { position: relative; }
+  .product-search { width: 100%; padding: 7px 10px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.85rem; font-family: inherit; background: white; margin-bottom: 4px; }
+  .product-search:focus { outline: none; border-color: #3182CE; }
+  .product-list { max-height: 180px; overflow-y: auto; border: 1px solid #E2E8F0; border-radius: 6px; background: white; }
+  .product-item { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-bottom: 1px solid #F7FAFC; font-size: 0.82rem; color: #2D3748; }
+  .product-item:last-child { border-bottom: none; }
+  .product-item input[type=checkbox] { accent-color: #38A169; flex-shrink: 0; }
+  .product-item .prod-name { flex: 1; }
+  .product-item .prod-sku { font-size: 0.7rem; color: #A0AEC0; }
+  .product-item .prod-qty { width: 52px; padding: 3px 6px; border: 1px solid #CBD5E0; border-radius: 4px; font-size: 0.82rem; text-align: center; font-family: inherit; }
+  .product-item.hidden { display: none; }
+  .product-selected-count { font-size: 0.72rem; color: #38A169; margin-top: 4px; min-height: 14px; }
+
+  .inflow-save-btn { background: #276749; color: white; border: none; border-radius: 7px; padding: 8px 20px; font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: background 0.12s; margin-top: 4px; }
+  .inflow-save-btn:hover { background: #22543D; }
+  .inflow-save-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* Linked info shown on the card's site block */
+  .linked-contact { font-size: 0.82rem; color: #2D3748; margin-top: 3px; }
+  .linked-contact a { color: #2B6CB0; text-decoration: none; }
+  .linked-products { margin-top: 6px; display: flex; flex-direction: column; gap: 2px; }
+  .linked-product-tag { font-size: 0.78rem; background: #EBF8FF; color: #2B6CB0; border: 1px solid #BEE3F8; border-radius: 4px; padding: 2px 8px; display: inline-flex; align-items: center; gap: 4px; }
+
+  /* ── inFlow link panel ──────────────────────────────────────────── */
+  .inflow-btn { background: transparent; border: 1px solid #CBD5E0; color: #718096; height: 30px; border-radius: 15px; cursor: pointer; font-size: 0.78rem; font-weight: 600; padding: 0 12px; display: flex; align-items: center; gap: 4px; white-space: nowrap; transition: background 0.12s, color 0.12s, border-color 0.12s; flex-shrink: 0; }
+  .inflow-btn:hover { background: #EBF8FF; color: #2B6CB0; border-color: #90CDF4; }
+  .inflow-btn.linked { background: #F0FFF4; color: #276749; border-color: #9AE6B4; }
+
+  .inflow-panel { display: none; padding: 14px 18px 16px; background: #F7FAFC; border-top: 2px solid #BEE3F8; }
+  .inflow-panel.open { display: block; }
+  .inflow-panel-title { font-size: 0.68rem; font-weight: 700; color: #2B6CB0; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+
+  .inflow-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .inflow-field { flex: 1; min-width: 180px; }
+  .inflow-label { font-size: 0.65rem; font-weight: 700; color: #A0AEC0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .inflow-search-wrap { position: relative; }
+  .inflow-search { width: 100%; padding: 7px 10px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.85rem; font-family: inherit; background: white; }
+  .inflow-search:focus { outline: none; border-color: #3182CE; }
+  .inflow-info { font-size: 0.82rem; color: #4A5568; padding: 5px 0 0; min-height: 18px; }
+
+  .inflow-dropdown { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #CBD5E0; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.12); z-index: 100; max-height: 200px; overflow-y: auto; display: none; }
+  .inflow-dropdown.open { display: block; }
+  .inflow-option { padding: 8px 12px; cursor: pointer; font-size: 0.85rem; color: #2D3748; border-bottom: 1px solid #F7FAFC; }
+  .inflow-option:last-child { border-bottom: none; }
+  .inflow-option:hover, .inflow-option.active { background: #EBF8FF; color: #2B6CB0; }
+  .inflow-option .opt-sub { font-size: 0.72rem; color: #A0AEC0; margin-top: 1px; }
+
+  /* Product dropdown */
+  .product-search-wrap { position: relative; }
+  .product-search { width: 100%; padding: 7px 10px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.85rem; font-family: inherit; background: white; margin-bottom: 4px; }
+  .product-search:focus { outline: none; border-color: #3182CE; }
+  .product-list { max-height: 180px; overflow-y: auto; border: 1px solid #E2E8F0; border-radius: 6px; background: white; }
+  .product-item { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-bottom: 1px solid #F7FAFC; font-size: 0.82rem; color: #2D3748; }
+  .product-item:last-child { border-bottom: none; }
+  .product-item input[type=checkbox] { accent-color: #38A169; flex-shrink: 0; }
+  .product-item .prod-name { flex: 1; }
+  .product-item .prod-sku { font-size: 0.7rem; color: #A0AEC0; }
+  .product-item .prod-qty { width: 52px; padding: 3px 6px; border: 1px solid #CBD5E0; border-radius: 4px; font-size: 0.82rem; text-align: center; font-family: inherit; }
+  .product-item.hidden { display: none; }
+  .product-selected-count { font-size: 0.72rem; color: #38A169; margin-top: 4px; min-height: 14px; }
+
+  .inflow-save-btn { background: #276749; color: white; border: none; border-radius: 7px; padding: 8px 20px; font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: background 0.12s; margin-top: 4px; }
+  .inflow-save-btn:hover { background: #22543D; }
+  .inflow-save-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* Linked info shown on the card's site block */
+  .linked-contact { font-size: 0.82rem; color: #2D3748; margin-top: 3px; }
+  .linked-contact a { color: #2B6CB0; text-decoration: none; }
+  .linked-products { margin-top: 6px; display: flex; flex-direction: column; gap: 2px; }
+  .linked-product-tag { font-size: 0.78rem; background: #EBF8FF; color: #2B6CB0; border: 1px solid #BEE3F8; border-radius: 4px; padding: 2px 8px; display: inline-flex; align-items: center; gap: 4px; }
   /* ── Done / Notes (Cloudflare-backed) ──────────────────────────── */
   .field-actions { padding: 10px 18px; display: flex; gap: 10px; align-items: center; border-top: 1px solid #EDF2F7; flex-wrap: wrap; }
   .done-btn { background: #F0FFF4; color: #276749; border: 2px solid #9AE6B4; border-radius: 8px; padding: 8px 18px; font-size: 0.88rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 7px; transition: background 0.15s, border-color 0.15s, transform 0.1s; }
@@ -250,13 +346,13 @@
 <div class="orders">
 
   <!-- INST-2026-002 · Dale Miller -->
-  <div class="order-card scheduled" data-inst-id="INST-2026-002" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-002 · —</div><div class="order-name">Dale Miller</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-002" title="Archive Dale Miller" aria-label="Archive Dale Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-002" title="Restore Dale Miller" aria-label="Restore Dale Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Dale Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Rough-wire job — lighting, panel, dedicated circuits, garage receptacles</div></div></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class=""><span class="note-cat">Layout</span>Main panel goes in the UTILITY ROOM</li><li class=""><span class="note-cat">Layout</span>6 x 8&#x27; tubelights — rough-wire only</li><li class=""><span class="note-cat">Layout</span>Wire in dedicated circuit for HOT WATER HEAT</li><li class=""><span class="note-cat">Layout</span>Freezer receptacle: WEST wall, toward the NORTH end, 18&quot; from floor — run in PVC CONDUIT</li><li class=""><span class="note-cat">Layout</span>Washing-machine receptacle: SOUTH wall of GARAGE, 18&quot; from floor</li></ul></div><div class="pick-list"><div class="pick-label">📦 Materials / BOM</div><table class="pick-table"><tr><th class="check"></th><th>Item</th><th>Qty</th></tr><tr><td class="check"><input type="checkbox"></td><td>8&#x27; Tubelight (rough-wired)</td><td class="qty">6</td></tr></table></div><div class="field-actions"><button type="button" class="done-btn" data-inst-id="INST-2026-002" aria-label="Mark INST-2026-002 done">✅ Mark Done</button><div class="field-notes-wrap"><div class="field-notes-label">📝 Field Notes</div><textarea class="field-notes-area" data-inst-id="INST-2026-002" rows="2" placeholder="Add notes here… (auto-saves)"></textarea><div class="field-notes-status" id="notes-status-INST-2026-002"></div></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Rough-wire job logged for today. Took the slot Mose Miller was holding (Mose pushed to 4/29).</li></ul></div></div>
+  <div class="order-card scheduled" data-inst-id="INST-2026-002" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-002 · —</div><div class="order-name">Dale Miller</div></div><div class="badges"><button type="button" class="inflow-btn" data-inst-id="INST-2026-002" title="Link to inFlow">🔗 inFlow</button><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-002" title="Archive Dale Miller" aria-label="Archive Dale Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-002" title="Restore Dale Miller" aria-label="Restore Dale Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Dale Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Rough-wire job — lighting, panel, dedicated circuits, garage receptacles</div></div></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class=""><span class="note-cat">Layout</span>Main panel goes in the UTILITY ROOM</li><li class=""><span class="note-cat">Layout</span>6 x 8&#x27; tubelights — rough-wire only</li><li class=""><span class="note-cat">Layout</span>Wire in dedicated circuit for HOT WATER HEAT</li><li class=""><span class="note-cat">Layout</span>Freezer receptacle: WEST wall, toward the NORTH end, 18&quot; from floor — run in PVC CONDUIT</li><li class=""><span class="note-cat">Layout</span>Washing-machine receptacle: SOUTH wall of GARAGE, 18&quot; from floor</li></ul></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="pick-list"><div class="pick-label">📦 Materials / BOM</div><table class="pick-table"><tr><th class="check"></th><th>Item</th><th>Qty</th></tr><tr><td class="check"><input type="checkbox"></td><td>8&#x27; Tubelight (rough-wired)</td><td class="qty">6</td></tr></table></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="field-actions"><button type="button" class="done-btn" data-inst-id="INST-2026-002" aria-label="Mark INST-2026-002 done">✅ Mark Done</button><div class="field-notes-wrap"><div class="field-notes-label">📝 Field Notes</div><textarea class="field-notes-area" data-inst-id="INST-2026-002" rows="2" placeholder="Add notes here… (auto-saves)"></textarea><div class="field-notes-status" id="notes-status-INST-2026-002"></div></div></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="inflow-panel" id="inflow-panel-INST-2026-002"><div class="inflow-panel-title">🔗 Link to inFlow Customer &amp; Products</div><div class="inflow-row"><div class="inflow-field" style="min-width:260px"><div class="inflow-label">Customer Name</div><div class="inflow-search-wrap"><input type="text" class="inflow-search" id="cust-search-INST-2026-002" placeholder="Type to search inFlow customers…" autocomplete="off"><div class="inflow-dropdown" id="cust-dd-INST-2026-002"></div></div><div class="inflow-info" id="cust-info-INST-2026-002"></div></div><div class="inflow-field"><div class="inflow-label">Phone</div><input type="text" class="inflow-search" id="cust-phone-INST-2026-002" placeholder="—" readonly></div><div class="inflow-field"><div class="inflow-label">Email</div><input type="text" class="inflow-search" id="cust-email-INST-2026-002" placeholder="—" readonly></div></div><div class="inflow-row"><div class="inflow-field" style="min-width:100%"><div class="inflow-label">Products / Materials</div><input type="text" class="product-search" id="prod-search-INST-2026-002" placeholder="Filter products…" autocomplete="off"><div class="product-list" id="prod-list-INST-2026-002"><div style="padding:10px;color:#A0AEC0;font-size:0.82rem">Loading products…</div></div><div class="product-selected-count" id="prod-count-INST-2026-002"></div></div></div><button type="button" class="inflow-save-btn" data-inst-id="INST-2026-002">💾 Save to Card</button></div><div class="linked-info" id="linked-info-INST-2026-002" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-002"></div><div class="linked-products" id="linked-products-INST-2026-002"></div></div><div class="inflow-panel" id="inflow-panel-INST-2026-002"><div class="inflow-panel-title">🔗 Link to inFlow Customer &amp; Products</div><div class="inflow-row"><div class="inflow-field" style="min-width:260px"><div class="inflow-label">Customer Name</div><div class="inflow-search-wrap"><input type="text" class="inflow-search" id="cust-search-INST-2026-002" placeholder="Type to search inFlow customers…" autocomplete="off"><div class="inflow-dropdown" id="cust-dd-INST-2026-002"></div></div><div class="inflow-info" id="cust-info-INST-2026-002"></div></div><div class="inflow-field"><div class="inflow-label">Phone</div><input type="text" class="inflow-search" id="cust-phone-INST-2026-002" placeholder="—" readonly></div><div class="inflow-field"><div class="inflow-label">Email</div><input type="text" class="inflow-search" id="cust-email-INST-2026-002" placeholder="—" readonly></div></div><div class="inflow-row"><div class="inflow-field" style="min-width:100%"><div class="inflow-label">Products / Materials</div><input type="text" class="product-search" id="prod-search-INST-2026-002" placeholder="Filter products…" autocomplete="off"><div class="product-list" id="prod-list-INST-2026-002"><div style="padding:10px;color:#A0AEC0;font-size:0.82rem">Loading products…</div></div><div class="product-selected-count" id="prod-count-INST-2026-002"></div></div></div><button type="button" class="inflow-save-btn" data-inst-id="INST-2026-002">💾 Save to Card</button></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Rough-wire job logged for today. Took the slot Mose Miller was holding (Mose pushed to 4/29).</li></ul></div></div>
 
   <!-- INST-2026-003 · Matt A Beechy -->
-  <div class="order-card scheduled" data-inst-id="INST-2026-003" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-003 · —</div><div class="order-name">Matt A Beechy</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-003" title="Archive Matt A Beechy" aria-label="Archive Matt A Beechy">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-003" title="Restore Matt A Beechy" aria-label="Restore Matt A Beechy">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Matt A Beechy</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Generator cord install</div></div></div><div class="field-actions"><button type="button" class="done-btn" data-inst-id="INST-2026-003" aria-label="Mark INST-2026-003 done">✅ Mark Done</button><div class="field-notes-wrap"><div class="field-notes-label">📝 Field Notes</div><textarea class="field-notes-area" data-inst-id="INST-2026-003" rows="2" placeholder="Add notes here… (auto-saves)"></textarea><div class="field-notes-status" id="notes-status-INST-2026-003"></div></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Gen cord install logged for today.</li></ul></div></div>
+  <div class="order-card scheduled" data-inst-id="INST-2026-003" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-003 · —</div><div class="order-name">Matt A Beechy</div></div><div class="badges"><button type="button" class="inflow-btn" data-inst-id="INST-2026-003" title="Link to inFlow">🔗 inFlow</button><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-003" title="Archive Matt A Beechy" aria-label="Archive Matt A Beechy">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-003" title="Restore Matt A Beechy" aria-label="Restore Matt A Beechy">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Matt A Beechy</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Generator cord install</div></div></div><div class="linked-info" id="linked-info-INST-2026-003" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-003"></div><div class="linked-products" id="linked-products-INST-2026-003"></div></div><div class="linked-info" id="linked-info-INST-2026-003" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-003"></div><div class="linked-products" id="linked-products-INST-2026-003"></div></div><div class="field-actions"><button type="button" class="done-btn" data-inst-id="INST-2026-003" aria-label="Mark INST-2026-003 done">✅ Mark Done</button><div class="field-notes-wrap"><div class="field-notes-label">📝 Field Notes</div><textarea class="field-notes-area" data-inst-id="INST-2026-003" rows="2" placeholder="Add notes here… (auto-saves)"></textarea><div class="field-notes-status" id="notes-status-INST-2026-003"></div></div></div><div class="linked-info" id="linked-info-INST-2026-003" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-003"></div><div class="linked-products" id="linked-products-INST-2026-003"></div></div><div class="linked-info" id="linked-info-INST-2026-003" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-003"></div><div class="linked-products" id="linked-products-INST-2026-003"></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="linked-info" id="linked-info-INST-2026-003" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-003"></div><div class="linked-products" id="linked-products-INST-2026-003"></div></div><div class="linked-info" id="linked-info-INST-2026-003" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-003"></div><div class="linked-products" id="linked-products-INST-2026-003"></div></div><div class="inflow-panel" id="inflow-panel-INST-2026-003"><div class="inflow-panel-title">🔗 Link to inFlow Customer &amp; Products</div><div class="inflow-row"><div class="inflow-field" style="min-width:260px"><div class="inflow-label">Customer Name</div><div class="inflow-search-wrap"><input type="text" class="inflow-search" id="cust-search-INST-2026-003" placeholder="Type to search inFlow customers…" autocomplete="off"><div class="inflow-dropdown" id="cust-dd-INST-2026-003"></div></div><div class="inflow-info" id="cust-info-INST-2026-003"></div></div><div class="inflow-field"><div class="inflow-label">Phone</div><input type="text" class="inflow-search" id="cust-phone-INST-2026-003" placeholder="—" readonly></div><div class="inflow-field"><div class="inflow-label">Email</div><input type="text" class="inflow-search" id="cust-email-INST-2026-003" placeholder="—" readonly></div></div><div class="inflow-row"><div class="inflow-field" style="min-width:100%"><div class="inflow-label">Products / Materials</div><input type="text" class="product-search" id="prod-search-INST-2026-003" placeholder="Filter products…" autocomplete="off"><div class="product-list" id="prod-list-INST-2026-003"><div style="padding:10px;color:#A0AEC0;font-size:0.82rem">Loading products…</div></div><div class="product-selected-count" id="prod-count-INST-2026-003"></div></div></div><button type="button" class="inflow-save-btn" data-inst-id="INST-2026-003">💾 Save to Card</button></div><div class="linked-info" id="linked-info-INST-2026-003" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-003"></div><div class="linked-products" id="linked-products-INST-2026-003"></div></div><div class="inflow-panel" id="inflow-panel-INST-2026-003"><div class="inflow-panel-title">🔗 Link to inFlow Customer &amp; Products</div><div class="inflow-row"><div class="inflow-field" style="min-width:260px"><div class="inflow-label">Customer Name</div><div class="inflow-search-wrap"><input type="text" class="inflow-search" id="cust-search-INST-2026-003" placeholder="Type to search inFlow customers…" autocomplete="off"><div class="inflow-dropdown" id="cust-dd-INST-2026-003"></div></div><div class="inflow-info" id="cust-info-INST-2026-003"></div></div><div class="inflow-field"><div class="inflow-label">Phone</div><input type="text" class="inflow-search" id="cust-phone-INST-2026-003" placeholder="—" readonly></div><div class="inflow-field"><div class="inflow-label">Email</div><input type="text" class="inflow-search" id="cust-email-INST-2026-003" placeholder="—" readonly></div></div><div class="inflow-row"><div class="inflow-field" style="min-width:100%"><div class="inflow-label">Products / Materials</div><input type="text" class="product-search" id="prod-search-INST-2026-003" placeholder="Filter products…" autocomplete="off"><div class="product-list" id="prod-list-INST-2026-003"><div style="padding:10px;color:#A0AEC0;font-size:0.82rem">Loading products…</div></div><div class="product-selected-count" id="prod-count-INST-2026-003"></div></div></div><button type="button" class="inflow-save-btn" data-inst-id="INST-2026-003">💾 Save to Card</button></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Gen cord install logged for today.</li></ul></div></div>
 
   <!-- INST-2026-001 · Mose Miller -->
-  <div class="order-card scheduled" data-inst-id="INST-2026-001" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-001 · —</div><div class="order-name">Mose Miller</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-001" title="Archive Mose Miller" aria-label="Archive Mose Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-001" title="Restore Mose Miller" aria-label="Restore Mose Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 2 days</div><div class="sched-date">April 29, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Mose Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Solar install — west wall preferred (flexible)</div></div></div><div class="stops-list"><div class="stops-label">🚛 Pre-Install Stops</div><ul><li><span class="stop-loc">📍 Zonna</span><span>Pick up the THICKEST K2 Rails before heading to site</span></li></ul></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class="preference"><span class="note-cat">Preference</span>West wall preferred for solar — but flexible, whatever works out</li><li class="access"><span class="note-cat">Access</span>Garage door panels can be removed if needed — Mose said it&#x27;s fairly simple to take a panel off</li><li class="condition"><span class="note-cat">Site Condition</span>Exhaust leak when motor runs — needs to be addressed/inspected</li></ul></div><div class="field-actions"><button type="button" class="done-btn" data-inst-id="INST-2026-001" aria-label="Mark INST-2026-001 done">✅ Mark Done</button><div class="field-notes-wrap"><div class="field-notes-label">📝 Field Notes</div><textarea class="field-notes-area" data-inst-id="INST-2026-001" rows="2" placeholder="Add notes here… (auto-saves)"></textarea><div class="field-notes-status" id="notes-status-INST-2026-001"></div></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 27</span>First entry on install tracker. Scheduled for 2026-04-28.</li><li><span class="tl-date">Apr 28</span>Pushed from 2026-04-28 to 2026-04-29 (Dale Miller rough-wire job took today&#x27;s slot).</li></ul></div></div>
+  <div class="order-card scheduled" data-inst-id="INST-2026-001" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-001 · —</div><div class="order-name">Mose Miller</div></div><div class="badges"><button type="button" class="inflow-btn" data-inst-id="INST-2026-001" title="Link to inFlow">🔗 inFlow</button><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-001" title="Archive Mose Miller" aria-label="Archive Mose Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-001" title="Restore Mose Miller" aria-label="Restore Mose Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 2 days</div><div class="sched-date">April 29, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Mose Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Solar install — west wall preferred (flexible)</div></div></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="stops-list"><div class="stops-label">🚛 Pre-Install Stops</div><ul><li><span class="stop-loc">📍 Zonna</span><span>Pick up the THICKEST K2 Rails before heading to site</span></li></ul></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class="preference"><span class="note-cat">Preference</span>West wall preferred for solar — but flexible, whatever works out</li><li class="access"><span class="note-cat">Access</span>Garage door panels can be removed if needed — Mose said it&#x27;s fairly simple to take a panel off</li><li class="condition"><span class="note-cat">Site Condition</span>Exhaust leak when motor runs — needs to be addressed/inspected</li></ul></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="field-actions"><button type="button" class="done-btn" data-inst-id="INST-2026-001" aria-label="Mark INST-2026-001 done">✅ Mark Done</button><div class="field-notes-wrap"><div class="field-notes-label">📝 Field Notes</div><textarea class="field-notes-area" data-inst-id="INST-2026-001" rows="2" placeholder="Add notes here… (auto-saves)"></textarea><div class="field-notes-status" id="notes-status-INST-2026-001"></div></div></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="inflow-panel" id="inflow-panel-INST-2026-001"><div class="inflow-panel-title">🔗 Link to inFlow Customer &amp; Products</div><div class="inflow-row"><div class="inflow-field" style="min-width:260px"><div class="inflow-label">Customer Name</div><div class="inflow-search-wrap"><input type="text" class="inflow-search" id="cust-search-INST-2026-001" placeholder="Type to search inFlow customers…" autocomplete="off"><div class="inflow-dropdown" id="cust-dd-INST-2026-001"></div></div><div class="inflow-info" id="cust-info-INST-2026-001"></div></div><div class="inflow-field"><div class="inflow-label">Phone</div><input type="text" class="inflow-search" id="cust-phone-INST-2026-001" placeholder="—" readonly></div><div class="inflow-field"><div class="inflow-label">Email</div><input type="text" class="inflow-search" id="cust-email-INST-2026-001" placeholder="—" readonly></div></div><div class="inflow-row"><div class="inflow-field" style="min-width:100%"><div class="inflow-label">Products / Materials</div><input type="text" class="product-search" id="prod-search-INST-2026-001" placeholder="Filter products…" autocomplete="off"><div class="product-list" id="prod-list-INST-2026-001"><div style="padding:10px;color:#A0AEC0;font-size:0.82rem">Loading products…</div></div><div class="product-selected-count" id="prod-count-INST-2026-001"></div></div></div><button type="button" class="inflow-save-btn" data-inst-id="INST-2026-001">💾 Save to Card</button></div><div class="linked-info" id="linked-info-INST-2026-001" style="display:none;padding:0 18px 10px;background:#F7FAFC;"><div class="linked-contact" id="linked-contact-INST-2026-001"></div><div class="linked-products" id="linked-products-INST-2026-001"></div></div><div class="inflow-panel" id="inflow-panel-INST-2026-001"><div class="inflow-panel-title">🔗 Link to inFlow Customer &amp; Products</div><div class="inflow-row"><div class="inflow-field" style="min-width:260px"><div class="inflow-label">Customer Name</div><div class="inflow-search-wrap"><input type="text" class="inflow-search" id="cust-search-INST-2026-001" placeholder="Type to search inFlow customers…" autocomplete="off"><div class="inflow-dropdown" id="cust-dd-INST-2026-001"></div></div><div class="inflow-info" id="cust-info-INST-2026-001"></div></div><div class="inflow-field"><div class="inflow-label">Phone</div><input type="text" class="inflow-search" id="cust-phone-INST-2026-001" placeholder="—" readonly></div><div class="inflow-field"><div class="inflow-label">Email</div><input type="text" class="inflow-search" id="cust-email-INST-2026-001" placeholder="—" readonly></div></div><div class="inflow-row"><div class="inflow-field" style="min-width:100%"><div class="inflow-label">Products / Materials</div><input type="text" class="product-search" id="prod-search-INST-2026-001" placeholder="Filter products…" autocomplete="off"><div class="product-list" id="prod-list-INST-2026-001"><div style="padding:10px;color:#A0AEC0;font-size:0.82rem">Loading products…</div></div><div class="product-selected-count" id="prod-count-INST-2026-001"></div></div></div><button type="button" class="inflow-save-btn" data-inst-id="INST-2026-001">💾 Save to Card</button></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 27</span>First entry on install tracker. Scheduled for 2026-04-28.</li><li><span class="tl-date">Apr 28</span>Pushed from 2026-04-28 to 2026-04-29 (Dale Miller rough-wire job took today&#x27;s slot).</li></ul></div></div>
 
 </div>
 
@@ -598,6 +694,262 @@
         searchInput.focus();
       });
     }
+  });
+})();
+
+
+// ── inFlow integration ───────────────────────────────────────────────────────
+(function () {
+  var API = 'https://fantastech-install-api.derek-7bd.workers.dev';
+  var productCache = null;
+
+  // ── Apply saved inFlow state to a card ──────────────────────────────────────
+  function applyInflowState(instId, state) {
+    if (!state.inflow) return;
+    var inf = state.inflow;
+
+    // Update the inFlow button
+    var btn = document.querySelector('.inflow-btn[data-inst-id="' + instId + '"]');
+    if (btn && inf.customer_name) {
+      btn.textContent = '🔗 ' + inf.customer_name.split(' ')[0];
+      btn.classList.add('linked');
+    }
+
+    // Populate the customer name search field with current value
+    var searchEl = document.getElementById('cust-search-' + instId);
+    if (searchEl && inf.customer_name) searchEl.value = inf.customer_name;
+
+    var phoneEl = document.getElementById('cust-phone-' + instId);
+    if (phoneEl && inf.phone) phoneEl.value = inf.phone;
+
+    var emailEl = document.getElementById('cust-email-' + instId);
+    if (emailEl && inf.email) emailEl.value = inf.email;
+
+    // Show linked-info section on the card
+    var liEl = document.getElementById('linked-info-' + instId);
+    if (liEl) {
+      var parts = [];
+      if (inf.phone) parts.push('<a href="tel:' + inf.phone.replace(/[^+0-9]/g,'') + '">' + inf.phone + '</a>');
+      if (inf.email) parts.push('<a href="mailto:' + inf.email + '">' + inf.email + '</a>');
+      var contactEl = document.getElementById('linked-contact-' + instId);
+      if (contactEl && parts.length) {
+        contactEl.innerHTML = parts.join(' &nbsp;·&nbsp; ');
+        liEl.style.display = '';
+      }
+      // Products
+      if (inf.products && inf.products.length) {
+        var prodEl = document.getElementById('linked-products-' + instId);
+        if (prodEl) {
+          prodEl.innerHTML = inf.products.map(function(p) {
+            return '<span class="linked-product-tag">📦 ' + (p.qty > 1 ? p.qty + '× ' : '') + p.name + '</span>';
+          }).join(' ');
+          liEl.style.display = '';
+        }
+      }
+    }
+  }
+
+  // ── Load products into a panel ─────────────────────────────────────────────
+  function loadProducts(instId, savedProducts) {
+    var listEl = document.getElementById('prod-list-' + instId);
+    if (!listEl) return;
+
+    function renderProducts(products) {
+      var savedIds = {};
+      var savedQtys = {};
+      if (savedProducts) {
+        savedProducts.forEach(function(p) { savedIds[p.id] = true; savedQtys[p.id] = p.qty || 1; });
+      }
+      listEl.innerHTML = products.map(function(p) {
+        var checked = savedIds[p.id] ? 'checked' : '';
+        var qty = savedQtys[p.id] || 1;
+        return '<div class="product-item" data-prod-id="' + p.id + '" data-prod-name="' + p.name.replace(/"/g,'&quot;') + '">' +
+          '<input type="checkbox" ' + checked + '>' +
+          '<span class="prod-name">' + p.name + (p.sku ? '' : '') + '</span>' +
+          (p.sku ? '<span class="prod-sku">' + p.sku + '</span>' : '') +
+          '<input type="number" class="prod-qty" value="' + qty + '" min="1" max="999" style="' + (checked ? '' : 'display:none') + '">' +
+          '</div>';
+      }).join('');
+      updateProdCount(instId);
+
+      // Checkbox toggle shows/hides qty
+      listEl.querySelectorAll('.product-item input[type=checkbox]').forEach(function(cb) {
+        cb.addEventListener('change', function() {
+          var qtyEl = cb.closest('.product-item').querySelector('.prod-qty');
+          if (qtyEl) qtyEl.style.display = cb.checked ? '' : 'none';
+          updateProdCount(instId);
+        });
+      });
+    }
+
+    if (productCache) {
+      renderProducts(productCache);
+    } else {
+      fetch(API + '/inflow/products')
+        .then(function(r) { return r.json(); })
+        .then(function(products) {
+          productCache = products;
+          renderProducts(products);
+        })
+        .catch(function() {
+          listEl.innerHTML = '<div style="padding:10px;color:#E53E3E;font-size:0.82rem">Could not load products — check connection</div>';
+        });
+    }
+
+    // Product filter
+    var searchEl = document.getElementById('prod-search-' + instId);
+    if (searchEl) {
+      searchEl.addEventListener('input', function() {
+        var q = searchEl.value.toLowerCase();
+        listEl.querySelectorAll('.product-item').forEach(function(item) {
+          var name = (item.dataset.prodName || '').toLowerCase();
+          item.classList.toggle('hidden', !!q && name.indexOf(q) === -1);
+        });
+      });
+    }
+  }
+
+  function updateProdCount(instId) {
+    var listEl = document.getElementById('prod-list-' + instId);
+    var countEl = document.getElementById('prod-count-' + instId);
+    if (!listEl || !countEl) return;
+    var n = listEl.querySelectorAll('.product-item input[type=checkbox]:checked').length;
+    countEl.textContent = n ? n + ' product' + (n === 1 ? '' : 's') + ' selected' : '';
+  }
+
+  // ── Customer autocomplete ──────────────────────────────────────────────────
+  function setupCustomerSearch(instId) {
+    var input = document.getElementById('cust-search-' + instId);
+    var dd = document.getElementById('cust-dd-' + instId);
+    if (!input || !dd) return;
+
+    var searchTimer = null;
+    var selectedCustomer = null;
+
+    input.addEventListener('input', function() {
+      clearTimeout(searchTimer);
+      var q = input.value.trim();
+      if (q.length < 1) { dd.classList.remove('open'); dd.innerHTML = ''; return; }
+      searchTimer = setTimeout(function() {
+        fetch(API + '/inflow/customers?q=' + encodeURIComponent(q))
+          .then(function(r) { return r.json(); })
+          .then(function(customers) {
+            if (!customers.length) {
+              dd.innerHTML = '<div class="inflow-option" style="color:#A0AEC0">No matches</div>';
+            } else {
+              dd.innerHTML = customers.map(function(c) {
+                return '<div class="inflow-option" data-id="' + c.id + '" data-name="' + c.name.replace(/"/g,'&quot;') + '" data-phone="' + (c.phone||'').replace(/"/g,'') + '" data-email="' + (c.email||'').replace(/"/g,'') + '">' +
+                  c.name +
+                  ((c.phone || c.email) ? '<div class="opt-sub">' + [c.phone, c.email].filter(Boolean).join(' · ') + '</div>' : '') +
+                  '</div>';
+              }).join('');
+            }
+            dd.classList.add('open');
+          })
+          .catch(function() {});
+      }, 280);
+    });
+
+    dd.addEventListener('click', function(e) {
+      var opt = e.target.closest('.inflow-option');
+      if (!opt || !opt.dataset.id) return;
+      selectedCustomer = { id: opt.dataset.id, name: opt.dataset.name, phone: opt.dataset.phone, email: opt.dataset.email };
+      input.value = opt.dataset.name;
+      var phoneEl = document.getElementById('cust-phone-' + instId);
+      var emailEl = document.getElementById('cust-email-' + instId);
+      if (phoneEl) phoneEl.value = opt.dataset.phone;
+      if (emailEl) emailEl.value = opt.dataset.email;
+      dd.classList.remove('open');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!input.contains(e.target) && !dd.contains(e.target)) dd.classList.remove('open');
+    });
+  }
+
+  // ── inFlow panel toggle ────────────────────────────────────────────────────
+  function setupInflowBtn(instId, savedState) {
+    var btn = document.querySelector('.inflow-btn[data-inst-id="' + instId + '"]');
+    var panel = document.getElementById('inflow-panel-' + instId);
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var opening = !panel.classList.contains('open');
+      panel.classList.toggle('open', opening);
+      if (opening) {
+        loadProducts(instId, savedState && savedState.inflow ? savedState.inflow.products : null);
+        setupCustomerSearch(instId);
+      }
+    });
+
+    // Save button
+    var saveBtn = panel.querySelector('.inflow-save-btn[data-inst-id="' + instId + '"]');
+    if (!saveBtn) return;
+    saveBtn.addEventListener('click', function() {
+      saveBtn.disabled = true;
+      saveBtn.textContent = '⏳ Saving…';
+
+      var name  = (document.getElementById('cust-search-' + instId) || {}).value || '';
+      var phone = (document.getElementById('cust-phone-' + instId) || {}).value || '';
+      var email = (document.getElementById('cust-email-' + instId) || {}).value || '';
+
+      var products = [];
+      var listEl = document.getElementById('prod-list-' + instId);
+      if (listEl) {
+        listEl.querySelectorAll('.product-item').forEach(function(item) {
+          var cb = item.querySelector('input[type=checkbox]');
+          if (cb && cb.checked) {
+            var qtyEl = item.querySelector('.prod-qty');
+            products.push({ id: item.dataset.prodId, name: item.dataset.prodName, qty: qtyEl ? parseInt(qtyEl.value) || 1 : 1 });
+          }
+        });
+      }
+
+      var patch = { inflow: { customer_name: name, phone: phone, email: email, products: products } };
+      fetch(API + '/state/' + instId, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(patch)
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(updated) {
+        saveBtn.textContent = '✅ Saved!';
+        saveBtn.disabled = false;
+        applyInflowState(instId, updated);
+        setTimeout(function() {
+          panel.classList.remove('open');
+          saveBtn.textContent = '💾 Save to Card';
+        }, 900);
+      })
+      .catch(function() {
+        saveBtn.textContent = '💾 Save to Card';
+        saveBtn.disabled = false;
+        alert('Save failed — check connection');
+      });
+    });
+  }
+
+  // ── Hook everything up on load ─────────────────────────────────────────────
+  var _originalLoadState = window.__installTrackerLoadState;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // After state loads, wire up each card's inFlow panel
+    fetch(API + '/state')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        document.querySelectorAll('.order-card[data-inst-id]').forEach(function(card) {
+          var id = card.dataset.instId;
+          var state = data[id] || {};
+          if (state.inflow) applyInflowState(id, state);
+          setupInflowBtn(id, state);
+        });
+      })
+      .catch(function() {
+        document.querySelectorAll('.order-card[data-inst-id]').forEach(function(card) {
+          setupInflowBtn(card.dataset.instId, {});
+        });
+      });
   });
 })();
 

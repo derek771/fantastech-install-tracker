@@ -4,101 +4,418 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fantastech Install Tracker</title>
+<meta name="description" content="Field install scheduling and progress tracker for Fantastech Energy Solution LLC.">
+<meta name="theme-color" content="#276749">
+<meta name="application-name" content="Install Tracker">
+<meta name="apple-mobile-web-app-title" content="Installs">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="msapplication-TileColor" content="#276749">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#F0F4F8;color:#2D3748}
-.header{background:#1A365D;color:white;padding:20px 32px}
-.header h1{font-size:22px}.header p{font-size:13px;color:#A0AEC0;margin-top:4px}
-.summary{background:white;border-bottom:1px solid #E2E8F0;padding:16px 32px;display:flex;gap:24px}
-.summary-card{text-align:center;min-width:80px}
-.summary-card .num{font-size:28px;font-weight:bold;color:#2B6CB0}
-.summary-card.scheduled .num{color:#D97706}
-.summary-card.completed .num{color:#38A169}
-.summary-card .lbl{font-size:11px;color:#718096;text-transform:uppercase}
-.main{padding:24px 32px;max-width:1000px;margin:0 auto}
-.order-card{background:white;border-radius:6px;padding:16px 20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #3182CE}
-.order-card.overdue{border-left-color:#E53E3E}.order-card.today{border-left-color:#D97706}
-.order-card.tomorrow{border-left-color:#ECC94B}.order-card.future{border-left-color:#3182CE}
-.order-card.tbd{border-left-color:#A0AEC0}
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
-.card-top-left{display:flex;flex-direction:column;gap:4px}
-.order-num{font-size:12px;color:#2B6CB0;background:#EBF8FF;padding:2px 8px;border-radius:4px;font-weight:bold;display:inline-block}
-.order-name{font-size:17px;font-weight:bold}
-.badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:bold}
-.badge-scheduled{background:#FFFBEB;color:#92400E;border:1px solid #FCD34D}
-.badge-completed{background:#F0FFF4;color:#276749;border:1px solid #9AE6B4}
-.archive-btn,.restore-btn{background:none;border:1px solid #CBD5E0;border-radius:4px;padding:2px 8px;cursor:pointer;font-size:11px;color:#718096}
-.schedule-banner{border-radius:4px;padding:8px 12px;margin:8px 0;font-size:13px}
-.schedule-banner.future{background:#EBF8FF;color:#2B6CB0}
-.schedule-banner.today{background:#FFFBEB;color:#92400E}
-.schedule-banner.tomorrow{background:#FEFCE8;color:#713F12}
-.schedule-banner.overdue{background:#FFF5F5;color:#742A2A}
-.schedule-banner.tbd{background:#F7FAFC;color:#4A5568}
-.sched-label{font-size:10px;text-transform:uppercase;font-weight:bold;opacity:.7}
-.sched-date{font-size:14px;font-weight:bold}
-.ship-to{display:flex;gap:16px;flex-wrap:wrap;margin:8px 0}
-.ship-to-block{min-width:200px}
-.ship-to-label{font-size:10px;text-transform:uppercase;color:#A0AEC0;font-weight:bold}
-.ship-to-name{font-weight:bold;font-size:14px}
-.ship-to-address{font-size:13px;color:#4A5568}
-.stops-list,.site-notes{background:#F7FAFC;border-radius:4px;padding:8px 12px;margin:6px 0;font-size:13px}
-.stops-label,.site-notes-label{font-size:10px;text-transform:uppercase;font-weight:bold;color:#718096;margin-bottom:4px}
-.stops-list ul,.site-notes ul{padding-left:16px}
-.stops-list li,.site-notes li{margin:3px 0}
-.site-notes li.warning{color:#92400E}
-.site-notes li.preference{color:#1A365D}
-.note-cat{font-weight:bold;margin-right:6px}
-.crew-row{display:flex;gap:12px;margin-top:8px;font-size:13px}
-.crew-label{font-size:10px;text-transform:uppercase;color:#A0AEC0;font-weight:bold}
-.crew-val.tbd{color:#A0AEC0;font-style:italic}
-.activity-toggle{cursor:pointer;font-size:12px;color:#3182CE;margin-top:8px;user-select:none}
-.activity-log{display:none;margin-top:6px;font-size:12px;color:#4A5568}
-.activity-log.open{display:block}
-.tl-list{padding-left:16px}
-.tl-date{font-weight:bold;margin-right:6px;color:#718096}
-.archived{display:none}
-footer{text-align:center;color:#A0AEC0;font-size:12px;padding:24px;border-top:1px solid #E2E8F0;margin-top:24px}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #f0f4f8; color: #1a202c; padding: 24px; }
+  header { background: linear-gradient(135deg, #276749 0%, #2F855A 100%); color: white; padding: 20px 28px; border-radius: 12px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; box-shadow: 0 4px 14px rgba(39, 103, 73, 0.25); position: relative; overflow: hidden; }
+  header::before { content: ""; position: absolute; top: -40%; right: -10%; width: 240px; height: 240px; background: radial-gradient(circle, rgba(251, 191, 36, 0.18) 0%, transparent 70%); pointer-events: none; }
+  header .brand { display: flex; align-items: center; gap: 14px; z-index: 1; }
+  .app-logo { width: 52px; height: 52px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); flex-shrink: 0; }
+  header .title-block h1 { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.2px; line-height: 1.1; }
+  header .tagline { font-size: 0.72rem; font-weight: 600; color: #FBD38D; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+  header .meta { font-size: 0.82rem; opacity: 0.85; text-align: right; z-index: 1; }
+  header .meta span { display: block; }
+  .install-btn { display: none; margin-top: 8px; background: #FBBF24; color: #276749; border: none; padding: 8px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; letter-spacing: 0.3px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background 0.12s, transform 0.12s; }
+  .install-btn:hover { background: #F59E0B; transform: translateY(-1px); }
+  .install-btn.visible { display: inline-flex; align-items: center; gap: 6px; }
+
+  .filter-hint { font-size: 0.72rem; color: #718096; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+  .summary-bar { display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  .summary-card { background: white; border-radius: 8px; padding: 14px 20px; flex: 1; min-width: 130px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 4px solid #ccc; cursor: pointer; user-select: none; transition: transform 0.12s, box-shadow 0.12s, background 0.12s; position: relative; }
+  .summary-card:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
+  .summary-card.active { background: #F7FAFC; box-shadow: 0 0 0 2px #2F855A, 0 4px 10px rgba(0,0,0,0.14); }
+  .summary-card.active::after { content: "✓"; position: absolute; top: 8px; right: 10px; font-size: 0.8rem; color: #2F855A; font-weight: 700; }
+  .summary-card.all              { border-top-color: #4A5568; }
+  .summary-card.scheduled        { border-top-color: #3182CE; }
+  .summary-card.materials-ready  { border-top-color: #D69E2E; }
+  .summary-card.in-progress      { border-top-color: #DD6B20; }
+  .summary-card.punch-list       { border-top-color: #805AD5; }
+  .summary-card.completed        { border-top-color: #38A169; }
+  .summary-card.on-hold          { border-top-color: #A0AEC0; }
+  .summary-card .num   { font-size: 2rem; font-weight: 700; }
+  .summary-card .label { font-size: 0.75rem; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+  .section-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #718096; margin-bottom: 12px; }
+  .orders, .archive-list { display: flex; flex-direction: column; gap: 18px; }
+  .order-card { background: white; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.10); overflow: hidden; border-left: 6px solid #ccc; }
+  .order-card.filtered-out { display: none; }
+  .archive-list .order-card { opacity: 0.72; filter: grayscale(0.25); transition: opacity 0.15s, filter 0.15s; }
+  .archive-list .order-card:hover { opacity: 1; filter: none; }
+  .order-card.scheduled        { border-left-color: #3182CE; }
+  .order-card.materials-ready  { border-left-color: #D69E2E; }
+  .order-card.in-progress      { border-left-color: #DD6B20; }
+  .order-card.punch-list       { border-left-color: #805AD5; }
+  .order-card.completed        { border-left-color: #38A169; }
+  .order-card.on-hold          { border-left-color: #A0AEC0; }
+  .card-top { padding: 14px 18px 10px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .card-top-left { flex: 1; }
+  .order-num  { font-size: 0.72rem; font-weight: 700; color: #718096; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 3px; }
+  .order-name { font-size: 1.1rem; font-weight: 700; color: #1a202c; }
+  .order-ref  { font-size: 0.82rem; color: #4A5568; margin-top: 2px; }
+  .badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .badge { font-size: 0.72rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+  .badge-scheduled        { background: #EBF8FF; color: #2B6CB0; border: 1px solid #BEE3F8; }
+  .badge-materials-ready  { background: #FFFBEB; color: #92400E; border: 1px solid #FBD38D; }
+  .badge-in-progress      { background: #FFFAF0; color: #C05621; border: 1px solid #FBD38D; }
+  .badge-punch-list       { background: #FAF5FF; color: #553C9A; border: 1px solid #D6BCFA; }
+  .badge-completed        { background: #F0FFF4; color: #276749; border: 1px solid #9AE6B4; }
+  .badge-on-hold          { background: #F7FAFC; color: #4A5568; border: 1px solid #CBD5E0; }
+
+  .archive-btn, .restore-btn { background: transparent; border: 1px solid #CBD5E0; color: #718096; height: 30px; border-radius: 15px; cursor: pointer; font-size: 0.78rem; font-weight: 600; line-height: 1; display: flex; align-items: center; justify-content: center; padding: 0 12px; transition: background 0.12s, color 0.12s, border-color 0.12s; flex-shrink: 0; gap: 4px; white-space: nowrap; }
+  .archive-btn:hover { background: #FFF5F5; color: #C53030; border-color: #FC8181; }
+  .restore-btn { background: #F0FFF4; color: #276749; border-color: #9AE6B4; }
+  .restore-btn:hover { background: #C6F6D5; color: #22543D; border-color: #68D391; }
+  .archive-btn:focus, .restore-btn:focus { outline: 2px solid #38A169; outline-offset: 2px; }
+  .restore-btn { display: none; }
+  .order-card.archived .archive-btn { display: none; }
+  .order-card.archived .restore-btn { display: flex; }
+
+  .archive-section { margin-top: 28px; padding-top: 20px; border-top: 2px dashed #CBD5E0; }
+  .archive-section.empty { display: none; }
+  .archive-header { cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: white; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); font-size: 0.82rem; font-weight: 700; color: #4A5568; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 14px; transition: background 0.12s; }
+  .archive-header:hover { background: #F7FAFC; }
+  .archive-header .arch-toggle { color: #38A169; font-size: 0.78rem; }
+  .archive-header .arch-count { color: #A0AEC0; font-weight: 600; margin-left: 6px; }
+  .archive-list { display: none; }
+  .archive-list.open { display: flex; }
+
+  .ship-to { padding: 12px 18px; background: #F7FAFC; border-bottom: 1px solid #EDF2F7; display: flex; gap: 32px; flex-wrap: wrap; }
+  .ship-to-label { font-size: 0.65rem; font-weight: 700; color: #A0AEC0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .ship-to-name    { font-size: 1rem; font-weight: 700; color: #1A202C; }
+  .ship-to-address { font-size: 0.9rem; color: #2D3748; line-height: 1.5; }
+  .ship-to-meta    { font-size: 0.82rem; color: #718096; margin-top: 4px; }
+
+  /* Big unmissable schedule banner — its own row at the top of every card */
+  .schedule-banner { padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 2px solid; flex-wrap: wrap; }
+  .schedule-banner .sched-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; opacity: 0.85; }
+  .schedule-banner .sched-date  { font-size: 1.7rem; font-weight: 900; line-height: 1.1; letter-spacing: 0.3px; }
+  .schedule-banner.future       { background: #EBF8FF; color: #2B6CB0; border-bottom-color: #BEE3F8; }
+  .schedule-banner.tomorrow     { background: linear-gradient(90deg, #FFFAF0 0%, #FED7AA 100%); color: #9C4221; border-bottom-color: #F6AD55; }
+  .schedule-banner.today        { background: linear-gradient(90deg, #FFFAF0 0%, #FBD38D 100%); color: #7B341E; border-bottom-color: #DD6B20; }
+  .schedule-banner.today .sched-date    { font-size: 2.1rem; text-transform: uppercase; }
+  .schedule-banner.tomorrow .sched-date { font-size: 1.95rem; text-transform: uppercase; }
+  .schedule-banner.overdue      { background: linear-gradient(90deg, #FFF5F5 0%, #FED7D7 100%); color: #822727; border-bottom-color: #E53E3E; animation: pulse-overdue 2.4s ease-in-out infinite; }
+  .schedule-banner.overdue .sched-date  { font-size: 2.1rem; }
+  .schedule-banner.tbd          { background: #F7FAFC; color: #4A5568; border-bottom-color: #CBD5E0; }
+  .schedule-banner.completed    { background: #F0FFF4; color: #276749; border-bottom-color: #9AE6B4; }
+  @keyframes pulse-overdue { 0%, 100% { box-shadow: inset 0 0 0 0 rgba(229,62,62,0); } 50% { box-shadow: inset 0 0 0 999px rgba(229,62,62,0.04); } }
+
+  .pick-list { padding: 14px 18px; }
+  .pick-label { font-size: 0.68rem; font-weight: 700; color: #A0AEC0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .pick-table { width: 100%; border-collapse: collapse; }
+  .pick-table th { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #A0AEC0; padding: 0 0 6px 0; border-bottom: 1px solid #EDF2F7; }
+  .pick-table th:last-child { text-align: right; }
+  .pick-table td { padding: 7px 0; border-bottom: 1px solid #F7FAFC; font-size: 0.88rem; color: #2D3748; vertical-align: middle; }
+  .pick-table tr:last-child td { border-bottom: none; }
+  .pick-table td.qty { text-align: right; font-weight: 700; font-size: 1rem; color: #1A202C; width: 50px; }
+  .pick-table td.check { width: 32px; padding-right: 10px; }
+  .pick-table input[type=checkbox] { width: 18px; height: 18px; cursor: pointer; accent-color: #38A169; }
+
+  .stops-list { padding: 12px 18px; background: #FFFBEB; border-top: 1px solid #FBD38D; border-bottom: 1px solid #FBD38D; }
+  .stops-label { font-size: 0.68rem; font-weight: 700; color: #92400E; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .stops-list ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+  .stops-list li { font-size: 0.86rem; color: #744210; display: flex; gap: 8px; align-items: flex-start; }
+  .stops-list li .stop-loc { font-weight: 700; min-width: 90px; }
+
+  .site-notes { padding: 12px 18px; }
+  .site-notes-label { font-size: 0.68rem; font-weight: 700; color: #A0AEC0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .site-notes ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .site-notes li { font-size: 0.88rem; color: #2D3748; padding: 8px 12px; background: #F7FAFC; border-left: 3px solid #CBD5E0; border-radius: 4px; }
+  .site-notes li.access      { border-left-color: #3182CE; }
+  .site-notes li.preference  { border-left-color: #38A169; }
+  .site-notes li.condition   { border-left-color: #DD6B20; }
+  .site-notes li.warning     { border-left-color: #E53E3E; background: #FFF5F5; }
+  .site-notes li .note-cat { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; margin-right: 8px; }
+
+  .punch-list { padding: 12px 18px; background: #FAF5FF; border-top: 1px solid #D6BCFA; }
+  .punch-list-label { font-size: 0.68rem; font-weight: 700; color: #553C9A; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .punch-list ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .punch-list li { font-size: 0.86rem; color: #44337A; display: flex; gap: 8px; align-items: flex-start; }
+  .punch-list li input[type=checkbox] { margin-top: 3px; accent-color: #805AD5; }
+  .punch-list li.done { text-decoration: line-through; opacity: 0.55; }
+
+  .notes-bar { margin: 0 18px 14px; background: #FFFBEB; border-radius: 6px; padding: 9px 14px; font-size: 0.82rem; color: #744210; border: 1px solid #FBD38D; }
+  .notes-bar strong { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #D69E2E; margin-bottom: 3px; }
+  .crew-row { padding: 8px 18px 12px; display: flex; gap: 28px; flex-wrap: wrap; border-top: 1px solid #EDF2F7; }
+  .crew-label { font-size: 0.65rem; font-weight: 700; color: #A0AEC0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .crew-val   { font-size: 0.84rem; color: #4A5568; }
+  .crew-val.tbd { color: #A0AEC0; font-style: italic; }
+  .activity-toggle { padding: 8px 18px; font-size: 0.75rem; color: #718096; cursor: pointer; display: flex; align-items: center; gap: 6px; border-top: 1px solid #EDF2F7; user-select: none; background: #FAFAFA; }
+  .activity-toggle:hover { background: #F0F4F8; }
+  .activity-log { display: none; padding: 0 18px 12px; }
+  .activity-log.open { display: block; }
+  .tl-list { list-style: none; padding-left: 14px; border-left: 2px solid #E2E8F0; display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
+  .tl-list li { font-size: 0.78rem; color: #4A5568; position: relative; }
+  .tl-list li::before { content: ""; position: absolute; left: -18px; top: 4px; width: 7px; height: 7px; border-radius: 50%; background: #38A169; border: 2px solid white; outline: 1px solid #38A169; }
+  .tl-list li .tl-date { font-weight: 700; color: #2D3748; margin-right: 6px; }
+  .empty-state { display: none; background: white; border-radius: 10px; padding: 40px 20px; text-align: center; color: #A0AEC0; font-size: 0.95rem; border: 2px dashed #E2E8F0; }
+  .empty-state.show { display: block; }
+  footer { margin-top: 28px; text-align: center; font-size: 0.72rem; color: #A0AEC0; }
+  @media print { body { background: white; padding: 0; } header { box-shadow: none; } header::before { display: none; } .summary-bar, .activity-toggle, .activity-log, .archive-btn, .restore-btn, .filter-hint, .archive-section, footer { display: none; } .order-card { box-shadow: none; border: 1px solid #ccc; margin-bottom: 16px; page-break-inside: avoid; } .order-card.filtered-out { display: block !important; } }
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>🔧 Fantastech Install Tracker</h1>
-  <p>Fantastech Energy Solution LLC &mdash; Field Install Jobs</p>
-</div>
-<div class="summary">
-  <div class="summary-card all"><div class="num" id="count-all">0</div><div class="lbl">Total</div></div>
-  <div class="summary-card scheduled"><div class="num" id="count-scheduled">0</div><div class="lbl">Scheduled</div></div>
-  <div class="summary-card completed"><div class="num" id="count-completed">0</div><div class="lbl">Completed</div></div>
-</div>
-<div class="main">
-  <div class="orders" id="orders-container">
-    <!-- Job cards inserted here by the install-tracker skill -->
+<header>
+  <div class="brand">
+    <svg class="app-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Fantastech Install Tracker logo">
+      <defs>
+        <linearGradient id="ftGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#FBBF24"/>
+          <stop offset="1" stop-color="#D97706"/>
+        </linearGradient>
+        <linearGradient id="ftGloss" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="rgba(255,255,255,0.22)"/>
+          <stop offset="0.55" stop-color="rgba(255,255,255,0)"/>
+        </linearGradient>
+      </defs>
+      <rect x="3" y="3" width="58" height="58" rx="14" fill="url(#ftGrad)"/>
+      <rect x="3" y="3" width="58" height="58" rx="14" fill="url(#ftGloss)"/>
+      <g stroke="white" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M14 44 L14 32 L24 22 L24 44 Z"/>
+        <path d="M40 44 L40 28 L50 18 L50 44 Z"/>
+        <line x1="10" y1="48" x2="54" y2="48"/>
+      </g>
+      <circle cx="32" cy="14" r="5" fill="#FFD43B" stroke="white" stroke-width="2"/>
+    </svg>
+    <div class="title-block">
+      <h1>Fantastech Install Tracker</h1>
+      <div class="tagline">Schedule · Materials · On-Site · Punch · Done</div>
+    </div>
   </div>
-  <p id="empty-msg" style="color:#A0AEC0;font-style:italic;text-align:center;padding:40px">No active jobs. Add a job to get started.</p>
+  <div class="meta">
+    <span>Last updated: May 1, 2026</span>
+    <span>Fantastech Energy Solution LLC</span>
+    <button type="button" class="install-btn" id="install-btn" title="Install as an app on this device">⬇ Install App</button>
+  </div>
+</header>
+
+<div class="filter-hint">Filter by status — click a card</div>
+<div class="summary-bar">
+  <div class="summary-card all active" data-filter="all"><div class="num">3</div><div class="label">All Installs</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">3</div><div class="label">Scheduled</div></div>
+  <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
+  <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
+  <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
+  <div class="summary-card completed" data-filter="completed"><div class="num">0</div><div class="label">Completed</div></div>
+  <div class="summary-card on-hold" data-filter="on-hold"><div class="num">0</div><div class="label">On Hold</div></div>
 </div>
-<footer>Fantastech Energy Solution LLC &mdash; derek@fantastech.org</footer>
+
+<div class="section-title">Active Installs — Schedule Order · Soonest First</div>
+<div class="orders">
+
+  <!-- INST-2026-002 · Dale Miller -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-002" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-002 · —</div><div class="order-name">Dale Miller</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-002" title="Archive Dale Miller" aria-label="Archive Dale Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-002" title="Restore Dale Miller" aria-label="Restore Dale Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Dale Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Rough-wire job — lighting, panel, dedicated circuits, garage receptacles</div></div></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class=""><span class="note-cat">Layout</span>Main panel goes in the UTILITY ROOM</li><li class=""><span class="note-cat">Layout</span>6 x 8&#x27; tubelights — rough-wire only</li><li class=""><span class="note-cat">Layout</span>Wire in dedicated circuit for HOT WATER HEAT</li><li class=""><span class="note-cat">Layout</span>Freezer receptacle: WEST wall, toward the NORTH end, 18&quot; from floor — run in PVC CONDUIT</li><li class=""><span class="note-cat">Layout</span>Washing-machine receptacle: SOUTH wall of GARAGE, 18&quot; from floor</li></ul></div><div class="pick-list"><div class="pick-label">📦 Materials / BOM</div><table class="pick-table"><tr><th class="check"></th><th>Item</th><th>Qty</th></tr><tr><td class="check"><input type="checkbox"></td><td>8&#x27; Tubelight (rough-wired)</td><td class="qty">6</td></tr></table></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Rough-wire job logged for today. Took the slot Mose Miller was holding (Mose pushed to 4/29).</li></ul></div></div>
+
+  <!-- INST-2026-003 · Matt A Beechy -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-003" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-003 · —</div><div class="order-name">Matt A Beechy</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-003" title="Archive Matt A Beechy" aria-label="Archive Matt A Beechy">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-003" title="Restore Matt A Beechy" aria-label="Restore Matt A Beechy">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 3 days</div><div class="sched-date">April 28, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Matt A Beechy</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Generator cord install</div></div></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 28</span>Gen cord install logged for today.</li></ul></div></div>
+
+  <!-- INST-2026-001 · Mose Miller -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-001" data-status="scheduled"><div class="card-top"><div class="card-top-left"><div class="order-num">INST-2026-001 · —</div><div class="order-name">Mose Miller</div></div><div class="badges"><span class="badge badge-scheduled">📅 Scheduled</span><button type="button" class="archive-btn" data-id="INST-2026-001" title="Archive Mose Miller" aria-label="Archive Mose Miller">📦 Archive</button><button type="button" class="restore-btn" data-id="INST-2026-001" title="Restore Mose Miller" aria-label="Restore Mose Miller">↩ Restore</button></div></div><div class="schedule-banner overdue"><div><div class="sched-label">⚠️ Overdue by 2 days</div><div class="sched-date">April 29, 2026</div></div></div><div class="ship-to"><div class="ship-to-block"><div class="ship-to-label">Site</div><div class="ship-to-name">Mose Miller</div><div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em></div></div><div class="ship-to-block" style="flex:1;min-width:240px"><div class="ship-to-label">Scope</div><div class="ship-to-address">Solar install — west wall preferred (flexible)</div></div></div><div class="stops-list"><div class="stops-label">🚛 Pre-Install Stops</div><ul><li><span class="stop-loc">📍 Zonna</span><span>Pick up the THICKEST K2 Rails before heading to site</span></li></ul></div><div class="site-notes"><div class="site-notes-label">📝 Site Notes</div><ul><li class="preference"><span class="note-cat">Preference</span>West wall preferred for solar — but flexible, whatever works out</li><li class="access"><span class="note-cat">Access</span>Garage door panels can be removed if needed — Mose said it&#x27;s fairly simple to take a panel off</li><li class="condition"><span class="note-cat">Site Condition</span>Exhaust leak when motor runs — needs to be addressed/inspected</li></ul></div><div class="crew-row"><div class="crew-field"><div class="crew-label">Crew</div><div class="crew-val tbd">TBD</div></div></div><div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div><div class="activity-log"><ul class="tl-list"><li><span class="tl-date">Apr 27</span>First entry on install tracker. Scheduled for 2026-04-28.</li><li><span class="tl-date">Apr 28</span>Pushed from 2026-04-28 to 2026-04-29 (Dale Miller rough-wire job took today&#x27;s slot).</li></ul></div></div>
+
+</div>
+
+<div class="empty-state" id="empty-state">No installs in this category.</div>
+
+<div class="archive-section empty" id="archive-section">
+  <div class="archive-header" id="archive-header">
+    <span>📦 Archived Installs <span class="arch-count" id="archive-count">(0)</span></span>
+    <span class="arch-toggle" id="archive-toggle">▼ Show</span>
+  </div>
+  <div class="archive-list" id="archive-list"></div>
+</div>
+
+<footer>Fantastech Energy Solution LLC · derek@fantastech.org · Updated May 1, 2026</footer>
+
 <script>
-document.addEventListener('click', function(e) {
-  if (e.target.classList.contains('archive-btn')) {
-    e.target.closest('.order-card').classList.add('archived');
-    updateCounts();
+(function () {
+  var STORAGE_KEY = 'fantastech_installs_archived_v1';
+
+  function getArchived() {
+    try {
+      var v = localStorage.getItem(STORAGE_KEY);
+      return v ? JSON.parse(v) : [];
+    } catch (e) { return []; }
   }
-  if (e.target.classList.contains('restore-btn')) {
-    e.target.closest('.order-card').classList.remove('archived');
-    updateCounts();
+  function setArchived(arr) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); } catch (e) {}
   }
-});
-function updateCounts() {
-  var all = document.querySelectorAll('.order-card:not(.archived)');
-  var sched = document.querySelectorAll('.order-card[data-status="scheduled"]:not(.archived)');
-  var done = document.querySelectorAll('.order-card[data-status="completed"]:not(.archived)');
-  document.getElementById('count-all').textContent = all.length;
-  document.getElementById('count-scheduled').textContent = sched.length;
-  document.getElementById('count-completed').textContent = done.length;
-  document.getElementById('empty-msg').style.display = all.length ? 'none' : 'block';
-}
-updateCounts();
+
+  function activeCards() { return document.querySelectorAll('.orders > .order-card'); }
+  function archivedCards() { return document.querySelectorAll('.archive-list > .order-card'); }
+
+  function refreshCounts() {
+    var cards = activeCards();
+    var counts = { all: cards.length };
+    cards.forEach(function (card) {
+      var s = card.dataset.status;
+      counts[s] = (counts[s] || 0) + 1;
+    });
+    document.querySelectorAll('.summary-card[data-filter]').forEach(function (tab) {
+      var f = tab.dataset.filter;
+      tab.querySelector('.num').textContent = counts[f] || 0;
+    });
+  }
+
+  function getActiveFilter() {
+    var active = document.querySelector('.summary-card.active');
+    return active ? active.dataset.filter : 'all';
+  }
+
+  function applyFilter(filter) {
+    document.querySelectorAll('.summary-card[data-filter]').forEach(function (tab) {
+      tab.classList.toggle('active', tab.dataset.filter === filter);
+    });
+    var anyVisible = false;
+    activeCards().forEach(function (card) {
+      var match = (filter === 'all' || card.dataset.status === filter);
+      card.classList.toggle('filtered-out', !match);
+      if (match) anyVisible = true;
+    });
+    var empty = document.getElementById('empty-state');
+    if (empty) empty.classList.toggle('show', !anyVisible);
+  }
+
+  function updateArchiveHeader() {
+    var archived = archivedCards();
+    var section = document.getElementById('archive-section');
+    var countEl = document.getElementById('archive-count');
+    if (!section) return;
+    countEl.textContent = '(' + archived.length + ')';
+    if (archived.length === 0) {
+      section.classList.add('empty');
+      document.getElementById('archive-list').classList.remove('open');
+      var toggle = document.getElementById('archive-toggle');
+      if (toggle) toggle.textContent = '▼ Show';
+    } else {
+      section.classList.remove('empty');
+    }
+  }
+
+  function archiveCard(id) {
+    if (!id) return;
+    var card = document.querySelector('.order-card[data-inst-id="' + id + '"]');
+    if (!card) return;
+    card.classList.add('archived');
+    card.classList.remove('filtered-out');
+    document.getElementById('archive-list').appendChild(card);
+    var arr = getArchived();
+    if (arr.indexOf(id) === -1) { arr.push(id); setArchived(arr); }
+    refreshCounts();
+    updateArchiveHeader();
+    applyFilter(getActiveFilter());
+  }
+
+  function restoreCard(id) {
+    if (!id) return;
+    var card = document.querySelector('.order-card[data-inst-id="' + id + '"]');
+    if (!card) return;
+    card.classList.remove('archived');
+    document.querySelector('.orders').appendChild(card);
+    var arr = getArchived().filter(function (x) { return x !== id; });
+    setArchived(arr);
+    refreshCounts();
+    updateArchiveHeader();
+    applyFilter(getActiveFilter());
+  }
+
+  function toggleArchiveList() {
+    var list = document.getElementById('archive-list');
+    var toggle = document.getElementById('archive-toggle');
+    var opening = !list.classList.contains('open');
+    list.classList.toggle('open', opening);
+    toggle.textContent = opening ? '▲ Hide' : '▼ Show';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var archived = getArchived();
+    var archiveList = document.getElementById('archive-list');
+    archived.forEach(function (id) {
+      var card = document.querySelector('.order-card[data-inst-id="' + id + '"]');
+      if (card) {
+        card.classList.add('archived');
+        archiveList.appendChild(card);
+      }
+    });
+
+    document.querySelectorAll('.summary-card[data-filter]').forEach(function (tab) {
+      tab.addEventListener('click', function () { applyFilter(tab.dataset.filter); });
+    });
+
+    document.querySelectorAll('.archive-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        archiveCard(btn.dataset.id);
+      });
+    });
+
+    document.querySelectorAll('.restore-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        restoreCard(btn.dataset.id);
+      });
+    });
+
+    var header = document.getElementById('archive-header');
+    if (header) header.addEventListener('click', toggleArchiveList);
+
+    refreshCounts();
+    updateArchiveHeader();
+    applyFilter('all');
+  });
+})();
+
+// --- PWA install flow ---
+(function () {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js').catch(function () {});
+    });
+  }
+
+  var deferredPrompt = null;
+  var installBtn = document.getElementById('install-btn');
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installBtn) installBtn.classList.add('visible');
+  });
+
+  if (installBtn) {
+    installBtn.addEventListener('click', function () {
+      if (!deferredPrompt) {
+        alert(
+          'If you don’t see an install option here, use your browser menu:\n\n' +
+          '• Chrome / Edge (Windows): menu (⋮) → "Install Install Tracker…"\n' +
+          '• Safari (iPad / iPhone): Share → Add to Home Screen\n' +
+          '• Chrome (Android tablet): menu → Install app'
+        );
+        return;
+      }
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function () {
+        deferredPrompt = null;
+        installBtn.classList.remove('visible');
+      });
+    });
+  }
+
+  window.addEventListener('appinstalled', function () {
+    deferredPrompt = null;
+    if (installBtn) installBtn.classList.remove('visible');
+  });
+})();
 </script>
 </body>
 </html>

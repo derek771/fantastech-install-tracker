@@ -200,10 +200,63 @@
   </div>
 </header>
 
-<div class="filter-hint">Filter by status — click a card</div>
+<div class="filter-hint">Filter by status — click a card
+  <!-- INST-2026-008 · Jeremy Miller -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-008" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-008 · —</div>
+        <div class="order-name">Jeremy Miller</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-008" title="Archive Jeremy Miller" aria-label="Archive Jeremy Miller">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-008" title="Restore Jeremy Miller" aria-label="Restore Jeremy Miller">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner future">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">May 11, 2026 (Monday) at 9:00 AM</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Jeremy Miller — Custom Steel Designs / Decron</div>
+        <div class="ship-to-address">1665 S 1000 W, Shipshewana, IN 46565</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Finish solar system installation (partial install completed Jan 22, 2026). Complete all remaining connections and commissioning.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="preference"><span class="note-cat">Access</span>Call Jeremy before arriving — he wants to be home: 260-336-2408 / Jeremy@decron.us</li>
+        <li class="warning"><span class="note-cat">Pending</span>Grid must be shut off temporarily to connect inverter. Jeremy will notify ahead of time when he can arrange it.</li>
+        <li class=""><span class="note-cat">Note</span>No backup generator on site (confirmed Jan 28, 2026).</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">May 7</span>Job added. Finish solar install Mon May 11 at 9am. Call Jeremy before arriving (260-336-2408). Grid shutoff required — Jeremy will give notice. Address: 1665 S 1000 W, Shipshewana IN.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
 <div class="summary-bar">
-  <div class="summary-card all active" data-filter="all"><div class="num">7</div><div class="label">All Installs</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">7</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all active" data-filter="all"><div class="num">8</div><div class="label">All Installs</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">8</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>

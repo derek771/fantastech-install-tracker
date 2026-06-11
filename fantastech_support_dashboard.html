@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#7B1113"><title>Fantastech Support Cases</title><style>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#7B1113"><title>Fantastech Support Cases</title><style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family: Arial, sans-serif; background:#f0f4f8; color:#1a202c; padding:24px; }
   header { background:linear-gradient(135deg,#1a1a1a 0%,#7B1113 100%); color:#fff; padding:20px 28px; border-radius:12px; margin-bottom:24px; box-shadow:0 4px 14px rgba(123,17,19,.25); }
@@ -24,13 +23,27 @@
   .badge { font-size:.72rem; font-weight:700; padding:4px 10px; border-radius:12px; white-space:nowrap; }
   .b-new { background:#EBF8FF; color:#2B6CB0; } .b-in-progress { background:#FEEBC8; color:#9C4221; }
   .b-waiting { background:#FEFCBF; color:#975A16; } .b-done { background:#C6F6D5; color:#276749; }
-  .b-prio { background:#EDF2F7; color:#4A5568; }
+  .b-prio { background:#EDF2F7; color:#4A5568; } .badge.b-pend { background:#FED7D7; color:#9B2C2C; }
   .age { font-size:.72rem; font-weight:700; color:#C53030; }
   .card-body { padding:4px 18px 14px; }
   .kv { display:flex; gap:10px; font-size:.84rem; padding:3px 0; border-top:1px solid #F0F4F8; }
   .kv .k { min-width:84px; color:#718096; font-size:.72rem; text-transform:uppercase; letter-spacing:.5px; padding-top:2px; }
   .kv .v { flex:1; color:#2D3748; }
   footer { margin-top:26px; font-size:.72rem; color:#A0AEC0; text-align:center; }
+  .close-btn { background:transparent; border:1px solid #CBD5E0; color:#718096; height:30px; border-radius:15px; cursor:pointer; font-size:.78rem; font-weight:600; padding:0 12px; white-space:nowrap; transition:background .12s,color .12s,border-color .12s; }
+  .close-btn:hover { background:#FFF5F5; color:#C53030; border-color:#FC8181; }
+  .pending-bar { display:none; background:#FFFAF0; border:1px solid #F6AD55; border-radius:10px; padding:14px 18px; margin-bottom:18px; }
+  .pending-bar h3 { font-size:.82rem; color:#9C4221; margin-bottom:8px; }
+  .pending-bar .pline { font-size:.82rem; font-family:monospace; background:#fff; border:1px solid #FBD38D; border-radius:6px; padding:7px 10px; margin:5px 0; display:flex; justify-content:space-between; gap:10px; align-items:center; }
+  .pending-bar button { background:#DD6B20; color:#fff; border:none; border-radius:6px; padding:5px 10px; font-size:.72rem; font-weight:700; cursor:pointer; }
+  .pending-bar .hint { font-size:.72rem; color:#975A16; margin-top:6px; }
+  .modal-bg { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:50; align-items:center; justify-content:center; padding:20px; }
+  .modal { background:#fff; border-radius:12px; padding:22px; max-width:480px; width:100%; box-shadow:0 10px 40px rgba(0,0,0,.3); }
+  .modal h2 { font-size:1rem; margin-bottom:4px; } .modal .sub { font-size:.78rem; color:#718096; margin-bottom:12px; }
+  .modal textarea { width:100%; min-height:110px; border:1px solid #CBD5E0; border-radius:8px; padding:10px; font-size:.88rem; font-family:inherit; resize:vertical; }
+  .modal .actions { display:flex; gap:10px; justify-content:flex-end; margin-top:14px; }
+  .modal .btn-cancel { background:#EDF2F7; color:#4A5568; border:none; border-radius:8px; padding:9px 16px; font-weight:700; cursor:pointer; }
+  .modal .btn-confirm { background:#C53030; color:#fff; border:none; border-radius:8px; padding:9px 16px; font-weight:700; cursor:pointer; }
 </style></head><body>
 <header><h1>🛠️ Fantastech Support Cases</h1><div class="tagline">Customer Support Tracker · updated June 11, 2026</div></header>
 <div class="summary">
@@ -39,6 +52,11 @@
   <div class="summary-card waiting" data-f="waiting"><div class="num">3</div><div class="label">Waiting</div></div>
   <div class="summary-card done" data-f="done"><div class="num">5</div><div class="label">Resolved / Closed</div></div>
 </div>
+<div class="pending-bar" id="pendingBar">
+  <h3>⏳ Closures pending sync — copy a line below and paste it to Claude to make it official in the tracker:</h3>
+  <div id="pendingLines"></div>
+  <div class="hint">These are saved in this browser only until Claude updates the spreadsheet and redeploys.</div>
+</div>
 <div class="cases">
   <div class="case-card waiting" data-status="waiting">
     <div class="card-top">
@@ -46,7 +64,7 @@
       <div class="case-name">Ervin Coblentz</div>
       <div class="product">BR Solar 620W x36, Sol-Ark 5K-2P, Grundfos Well Pump, 200W FY Panels x2, Sunstar 16 Cu Ft Fridge</div></div>
       <div class="badges"><span class="badge b-waiting">⏳ Waiting on Vendor</span>
-      <span class="badge b-prio">🟠 High</span><span class="age">43 days open</span></div>
+      <span class="badge b-prio">🟠 High</span><span class="age">43 days open</span><button type="button" class="close-btn" data-id="CS-2026-014" data-name="Ervin Coblentz">✖ Close Case</button></div>
     </div>
     <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Carrier reweigh dispute — carrier claims 5,860 lbs vs. BOL 2,915 lbs (Load# 128577927)</span></div><div class="kv"><span class="k">Contact</span><span class="v">lbeaumont@qualityfreightrate.com (broker Lisa Beaumont)</span></div><div class="kv"><span class="k">Notes</span><span class="v">Packing list + spec sheets sent to broker 4/29. Carrier likely counted 36 panels twice. SO-000119. | 6/11: follow-up drafted to Lisa Beaumont asking if dispute resolved.</span></div>
       <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via email</span></div>
@@ -58,7 +76,7 @@
       <div class="case-name">Fantastech Energy Solution LLC (internal)</div>
       <div class="product">Solis S6-EH2P16K03-SV-YD-L-US (16kW Hybrid Inverter)</div></div>
       <div class="badges"><span class="badge b-waiting">⏳ Waiting on Vendor</span>
-      <span class="badge b-prio">🟠 High</span><span class="age">36 days open</span></div>
+      <span class="badge b-prio">🟠 High</span><span class="age">36 days open</span><button type="button" class="close-btn" data-id="CS-2026-020" data-name="Fantastech Energy Solution LLC (internal)">✖ Close Case</button></div>
     </div>
     <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Load output back-fed by 240V grid; DC side failed shorted (continuity P-N at battery terminals). Solis Service ticket #80112 closed/routed to Sales (ussales@) for parts quote.</span></div><div class="kv"><span class="k">Contact</span><span class="v">derek@fantastech.org</span></div><div class="kv"><span class="k">Notes</span><span class="v">S/N 403162A259020018. Incident 2026-05-02. Solis Service ticket #80112 (closed). Draft to ussales@solisinverters.com pending in Gmail. Possible escalation: Al Delacruz (Al.Delacruz@solisinverters.com).</span></div>
       <div class="kv"><span class="k">Updated</span><span class="v">2026-05-06 · via phone</span></div>
@@ -70,7 +88,7 @@
       <div class="case-name">Nelson Stump</div>
       <div class="product">Sol-Ark 60K-3P-480V (3 units, parallel)</div></div>
       <div class="badges"><span class="badge b-waiting">⏳ Waiting on Vendor</span>
-      <span class="badge b-prio">🟡 Normal</span><span class="age">14 days open</span></div>
+      <span class="badge b-prio">🟡 Normal</span><span class="age">14 days open</span><button type="button" class="close-btn" data-id="CS-2026-027" data-name="Nelson Stump">✖ Close Case</button></div>
     </div>
     <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">All 3 inverters tripped F63 (Arc Fault) simultaneously; W02 grid voltage warning ~2 hrs prior. All back online after reset.</span></div><div class="kv"><span class="k">Contact</span><span class="v">574-538-7166 / nwstump82@icloud.com</span></div><div class="kv"><span class="k">Notes</span><span class="v">Sol-Ark ticket 338568 open. Common-mode AFCI false-trip suspected (grid disturbance). Customer also needs 2 WiFi dongles for 2 of the 3 inverters (not on Ethernet).</span></div>
       <div class="kv"><span class="k">Updated</span><span class="v">2026-05-28 · via phone</span></div>
@@ -82,7 +100,7 @@
       <div class="case-name">Nelson Stump</div>
       <div class="product">3x Sol-Ark 60K-3P 480V + 100kW 3-phase generator</div></div>
       <div class="badges"><span class="badge b-in-progress">🔧 In Progress</span>
-      <span class="badge b-prio">🟠 High</span><span class="age">3 days open</span></div>
+      <span class="badge b-prio">🟠 High</span><span class="age">3 days open</span><button type="button" class="close-btn" data-id="CS-2026-029" data-name="Nelson Stump">✖ Close Case</button></div>
     </div>
     <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Inverters fault/shut down on generator spool-down instead of islanding to battery</span></div><div class="kv"><span class="k">Contact</span><span class="v">574-538-7166 / nwstump82@icloud.com</span></div><div class="kv"><span class="k">Notes</span><span class="v">Synced from case folder 6/11 (row was missing). See case folder for 6/9 &amp; 6/11 updates.</span></div>
       <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via phone</span></div>
@@ -94,7 +112,7 @@
       <div class="case-name">J &amp; R Woodworking</div>
       <div class="product">Batteries (model TBD — confirm on site)</div></div>
       <div class="badges"><span class="badge b-in-progress">🔧 In Progress</span>
-      <span class="badge b-prio">🟠 High</span><span class="age">0 days open</span></div>
+      <span class="badge b-prio">🟠 High</span><span class="age">0 days open</span><button type="button" class="close-btn" data-id="CS-2026-030" data-name="J &amp; R Woodworking">✖ Close Case</button></div>
     </div>
     <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Battery check needed — Derek to visit site ASAP</span></div><div class="kv"><span class="k">Contact</span><span class="v">(260) 463-4257 / Accounting@jrwoodworkingllc.com</span></div><div class="kv"><span class="k">Notes</span><span class="v">Per Derek 6/11: visit J&amp;R to check their batteries ASAP. Site: 3200 W 100 N, LaGrange, IN 46761. QBO customer #219.</span></div>
       <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via phone</span></div>
@@ -106,7 +124,7 @@
       <div class="case-name">Nate Mullett (Decron)</div>
       <div class="product">Off-grid system w/ generator backup (SO-000302)</div></div>
       <div class="badges"><span class="badge b-in-progress">🔧 In Progress</span>
-      <span class="badge b-prio">🟡 Normal</span><span class="age">0 days open</span></div>
+      <span class="badge b-prio">🟡 Normal</span><span class="age">0 days open</span><button type="button" class="close-btn" data-id="CS-2026-031" data-name="Nate Mullett (Decron)">✖ Close Case</button></div>
     </div>
     <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Generator auto-start test never completed — customer requesting finish-up visit</span></div><div class="kv"><span class="k">Contact</span><span class="v">Nathan@decron.us / 260-350-7677</span></div><div class="kv"><span class="k">Notes</span><span class="v">Customer emailed 6/9 asking to finish up. Derek replied 6/9: need batteries &lt;90% to test gen — awaiting his battery %. Site: 1665 S 1000W, Shipshewana, IN 46565. Invoice paid (check mailed 5/19).</span></div>
       <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via email</span></div>
@@ -174,7 +192,73 @@
   </div>
 </div>
 <footer>Source of truth: Fantastech_Support_Tracker.xlsx (Google Drive · Claude info/Support). Regenerate via gen_support_dashboard.py.</footer>
+<div class="modal-bg" id="modalBg"><div class="modal">
+  <h2 id="modalTitle">Close case</h2>
+  <div class="sub">Enter the final conclusion / resolution for this case:</div>
+  <textarea id="modalText" placeholder="e.g. Carrier accepted the dispute, weight corrected, no charge."></textarea>
+  <div class="actions"><button class="btn-cancel" id="modalCancel">Cancel</button>
+  <button class="btn-confirm" id="modalConfirm">Close Case</button></div>
+</div></div>
 <script>
+const KEY = 'fantastech_support_closures';
+const load = () => JSON.parse(localStorage.getItem(KEY) || '{}');
+const save = o => localStorage.setItem(KEY, JSON.stringify(o));
+
+function applyClosure(id, conclusion) {
+  const card = document.querySelector(`.close-btn[data-id="${id}"]`)?.closest('.case-card');
+  if (!card) return;
+  card.dataset.status = 'done'; card.className = 'case-card done';
+  const badge = card.querySelector('.badge'); badge.className = 'badge b-pend'; badge.textContent = '✅ Closed (pending sync)';
+  card.querySelector('.age')?.remove();
+  card.querySelector('.close-btn')?.remove();
+  const body = card.querySelector('.card-body');
+  const kv = document.createElement('div'); kv.className = 'kv';
+  kv.innerHTML = '<span class="k">Conclusion</span><span class="v"></span>';
+  kv.querySelector('.v').textContent = conclusion;
+  body.prepend(kv);
+}
+
+function renderPending() {
+  const obj = load(); const keys = Object.keys(obj);
+  const bar = document.getElementById('pendingBar');
+  bar.style.display = keys.length ? 'block' : 'none';
+  const box = document.getElementById('pendingLines'); box.innerHTML = '';
+  keys.forEach(id => {
+    const line = `Close ${id}: ${obj[id].conclusion}`;
+    const div = document.createElement('div'); div.className = 'pline';
+    const span = document.createElement('span'); span.textContent = line;
+    const btn = document.createElement('button'); btn.textContent = '📋 Copy';
+    btn.onclick = () => { navigator.clipboard.writeText(line); btn.textContent = '✓ Copied'; setTimeout(()=>btn.textContent='📋 Copy',1500); };
+    div.append(span, btn); box.appendChild(div);
+  });
+}
+
+let activeId = null;
+document.querySelectorAll('.close-btn').forEach(b => b.addEventListener('click', () => {
+  activeId = b.dataset.id;
+  document.getElementById('modalTitle').textContent = `Close ${activeId} · ${b.dataset.name}`;
+  document.getElementById('modalText').value = '';
+  document.getElementById('modalBg').style.display = 'flex';
+  document.getElementById('modalText').focus();
+}));
+document.getElementById('modalCancel').onclick = () => document.getElementById('modalBg').style.display = 'none';
+document.getElementById('modalBg').addEventListener('click', e => { if (e.target.id === 'modalBg') e.target.style.display = 'none'; });
+document.getElementById('modalConfirm').onclick = () => {
+  const txt = document.getElementById('modalText').value.trim();
+  if (!txt) { document.getElementById('modalText').focus(); return; }
+  const obj = load(); obj[activeId] = { conclusion: txt, date: new Date().toISOString().slice(0,10) };
+  save(obj); applyClosure(activeId, txt); renderPending();
+  document.getElementById('modalBg').style.display = 'none';
+};
+
+const stored = load(); let changed = false;
+Object.keys(stored).forEach(id => {
+  if (document.querySelector(`.close-btn[data-id="${id}"]`)) applyClosure(id, stored[id].conclusion);
+  else { delete stored[id]; changed = true; }
+});
+if (changed) save(stored);
+renderPending();
+
 document.querySelectorAll('.summary-card').forEach(sc => sc.addEventListener('click', () => {
   document.querySelectorAll('.summary-card').forEach(x => x.classList.remove('active'));
   sc.classList.add('active');

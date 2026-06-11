@@ -37,6 +37,7 @@
   .summary-card.active { background: #F7FAFC; box-shadow: 0 0 0 2px #2F855A, 0 4px 10px rgba(0,0,0,0.14); }
   .summary-card.active::after { content: "✓"; position: absolute; top: 8px; right: 10px; font-size: 0.8rem; color: #2F855A; font-weight: 700; }
   .summary-card.all              { border-top-color: #4A5568; }
+  .summary-card.open             { border-top-color: #319795; }
   .summary-card.scheduled        { border-top-color: #3182CE; }
   .summary-card.materials-ready  { border-top-color: #D69E2E; }
   .summary-card.in-progress      { border-top-color: #DD6B20; }
@@ -215,7 +216,8 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all active" data-filter="all"><div class="num">10</div><div class="label">All Installs</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">10</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">10</div><div class="label">Not Done</div></div>
   <div class="summary-card scheduled" data-filter="scheduled"><div class="num">10</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
@@ -402,6 +404,7 @@
       var s = card.dataset.status;
       counts[s] = (counts[s] || 0) + 1;
     });
+    counts.open = (counts.all || 0) - (counts.completed || 0);
     document.querySelectorAll('.summary-card[data-filter]').forEach(function (tab) {
       var f = tab.dataset.filter;
       tab.querySelector('.num').textContent = counts[f] || 0;
@@ -419,7 +422,7 @@
     });
     var anyVisible = false;
     activeCards().forEach(function (card) {
-      var match = (filter === 'all' || card.dataset.status === filter);
+      var match = (filter === 'all' || (filter === 'open' ? card.dataset.status !== 'completed' : card.dataset.status === filter));
       card.classList.toggle('filtered-out', !match);
       if (match) anyVisible = true;
     });
@@ -653,7 +656,7 @@
 
     refreshCounts();
     updateArchiveHeader();
-    applyFilter('all');
+    applyFilter(getActiveFilter());
   });
 })();
 

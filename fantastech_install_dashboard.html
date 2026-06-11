@@ -56,7 +56,10 @@
   .order-card.materials-ready  { border-left-color: #D69E2E; }
   .order-card.in-progress      { border-left-color: #DD6B20; }
   .order-card.punch-list       { border-left-color: #805AD5; }
-  .order-card.completed        { border-left-color: #38A169; }
+  .order-card                  { transition: opacity 0.25s ease, transform 0.25s ease; }
+  .order-card.completed        { border-left-color: #38A169; opacity: 0.6; transform: scale(0.99); animation: sinkDone 0.4s ease; }
+  .order-card.completed:hover  { opacity: 1; }
+  @keyframes sinkDone { from { transform: translateY(-8px) scale(1); } to { transform: translateY(0) scale(0.99); } }
   .order-card.on-hold          { border-left-color: #A0AEC0; }
   .card-top { padding: 14px 18px 10px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
   .card-top-left { flex: 1; }
@@ -493,6 +496,18 @@
     log.appendChild(li);
   }
 
+  // Keep open jobs on top, completed jobs sunk to the bottom (stable order).
+  function reorderCards() {
+    var container = document.querySelector('.orders');
+    if (!container) return;
+    var cards = Array.prototype.slice.call(container.children).filter(function (c) {
+      return c.classList && c.classList.contains('order-card');
+    });
+    var open = cards.filter(function (c) { return c.dataset.status !== 'completed'; });
+    var done = cards.filter(function (c) { return c.dataset.status === 'completed'; });
+    open.concat(done).forEach(function (c) { container.appendChild(c); });
+  }
+
   function markDone(id) {
     if (!id) return;
     var card = document.querySelector('.order-card[data-inst-id="' + id + '"]');
@@ -519,6 +534,7 @@
     var done = getCompleted();
     done[id] = { status: 'completed', prev: prev, at: new Date().toISOString() };
     setCompleted(done);
+    reorderCards();
     refreshCounts();
     applyFilter(getActiveFilter());
   }
@@ -540,6 +556,7 @@
     var done = getCompleted();
     delete done[id];
     setCompleted(done);
+    reorderCards();
     refreshCounts();
     applyFilter(getActiveFilter());
   }
@@ -628,6 +645,7 @@
     });
 
     applyCompletedState();
+    reorderCards();
     applySoLinks();
 
     var header = document.getElementById('archive-header');

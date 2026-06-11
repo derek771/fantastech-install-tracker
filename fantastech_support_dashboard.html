@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7B1113"><title>Fantastech Support Cases</title><style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Arial, sans-serif; background:#f0f4f8; color:#1a202c; padding:24px; }
+  header { background:linear-gradient(135deg,#1a1a1a 0%,#7B1113 100%); color:#fff; padding:20px 28px; border-radius:12px; margin-bottom:24px; box-shadow:0 4px 14px rgba(123,17,19,.25); }
+  header h1 { font-size:1.35rem; } header .tagline { font-size:.72rem; font-weight:600; color:#FBD38D; text-transform:uppercase; letter-spacing:2px; margin-top:4px; }
+  .summary { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
+  .summary-card { background:#fff; border-radius:8px; padding:14px 20px; flex:1; min-width:120px; box-shadow:0 1px 4px rgba(0,0,0,.08); border-top:4px solid #ccc; cursor:pointer; user-select:none; transition:transform .12s, box-shadow .12s; position:relative; }
+  .summary-card:hover { transform:translateY(-2px); }
+  .summary-card.active { background:#F7FAFC; box-shadow:0 0 0 2px #7B1113, 0 4px 10px rgba(0,0,0,.14); }
+  .summary-card.active::after { content:"✓"; position:absolute; top:8px; right:10px; font-size:.8rem; color:#7B1113; font-weight:700; }
+  .summary-card.all { border-top-color:#4A5568; } .summary-card.open { border-top-color:#DD6B20; }
+  .summary-card.waiting { border-top-color:#D69E2E; } .summary-card.done { border-top-color:#38A169; }
+  .summary-card .num { font-size:1.5rem; font-weight:700; } .summary-card .label { font-size:.75rem; color:#718096; text-transform:uppercase; letter-spacing:.5px; margin-top:2px; }
+  .cases { display:flex; flex-direction:column; gap:16px; }
+  .case-card { background:#fff; border-radius:10px; box-shadow:0 1px 6px rgba(0,0,0,.10); overflow:hidden; border-left:6px solid #ccc; }
+  .case-card.new { border-left-color:#3182CE; } .case-card.in-progress { border-left-color:#DD6B20; }
+  .case-card.waiting { border-left-color:#D69E2E; } .case-card.done { border-left-color:#38A169; opacity:.78; }
+  .card-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding:14px 18px 10px; flex-wrap:wrap; }
+  .case-num { font-size:.74rem; color:#718096; letter-spacing:.5px; }
+  .case-name { font-size:1.12rem; font-weight:700; } .product { font-size:.82rem; color:#4A5568; margin-top:2px; }
+  .badges { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  .badge { font-size:.72rem; font-weight:700; padding:4px 10px; border-radius:12px; white-space:nowrap; }
+  .b-new { background:#EBF8FF; color:#2B6CB0; } .b-in-progress { background:#FEEBC8; color:#9C4221; }
+  .b-waiting { background:#FEFCBF; color:#975A16; } .b-done { background:#C6F6D5; color:#276749; }
+  .b-prio { background:#EDF2F7; color:#4A5568; }
+  .age { font-size:.72rem; font-weight:700; color:#C53030; }
+  .card-body { padding:4px 18px 14px; }
+  .kv { display:flex; gap:10px; font-size:.84rem; padding:3px 0; border-top:1px solid #F0F4F8; }
+  .kv .k { min-width:84px; color:#718096; font-size:.72rem; text-transform:uppercase; letter-spacing:.5px; padding-top:2px; }
+  .kv .v { flex:1; color:#2D3748; }
+  footer { margin-top:26px; font-size:.72rem; color:#A0AEC0; text-align:center; }
+</style></head><body>
+<header><h1>🛠️ Fantastech Support Cases</h1><div class="tagline">Customer Support Tracker · updated June 11, 2026</div></header>
+<div class="summary">
+  <div class="summary-card all active" data-f="all"><div class="num">11</div><div class="label">All Cases</div></div>
+  <div class="summary-card open" data-f="new,in-progress"><div class="num">3</div><div class="label">Open</div></div>
+  <div class="summary-card waiting" data-f="waiting"><div class="num">3</div><div class="label">Waiting</div></div>
+  <div class="summary-card done" data-f="done"><div class="num">5</div><div class="label">Resolved / Closed</div></div>
+</div>
+<div class="cases">
+  <div class="case-card waiting" data-status="waiting">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-014 · 2026-04-29</div>
+      <div class="case-name">Ervin Coblentz</div>
+      <div class="product">BR Solar 620W x36, Sol-Ark 5K-2P, Grundfos Well Pump, 200W FY Panels x2, Sunstar 16 Cu Ft Fridge</div></div>
+      <div class="badges"><span class="badge b-waiting">⏳ Waiting on Vendor</span>
+      <span class="badge b-prio">🟠 High</span><span class="age">43 days open</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Carrier reweigh dispute — carrier claims 5,860 lbs vs. BOL 2,915 lbs (Load# 128577927)</span></div><div class="kv"><span class="k">Contact</span><span class="v">lbeaumont@qualityfreightrate.com (broker Lisa Beaumont)</span></div><div class="kv"><span class="k">Notes</span><span class="v">Packing list + spec sheets sent to broker 4/29. Carrier likely counted 36 panels twice. SO-000119. | 6/11: follow-up drafted to Lisa Beaumont asking if dispute resolved.</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via email</span></div>
+    </div>
+  </div>
+  <div class="case-card waiting" data-status="waiting">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-020 · 2026-05-06</div>
+      <div class="case-name">Fantastech Energy Solution LLC (internal)</div>
+      <div class="product">Solis S6-EH2P16K03-SV-YD-L-US (16kW Hybrid Inverter)</div></div>
+      <div class="badges"><span class="badge b-waiting">⏳ Waiting on Vendor</span>
+      <span class="badge b-prio">🟠 High</span><span class="age">36 days open</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Load output back-fed by 240V grid; DC side failed shorted (continuity P-N at battery terminals). Solis Service ticket #80112 closed/routed to Sales (ussales@) for parts quote.</span></div><div class="kv"><span class="k">Contact</span><span class="v">derek@fantastech.org</span></div><div class="kv"><span class="k">Notes</span><span class="v">S/N 403162A259020018. Incident 2026-05-02. Solis Service ticket #80112 (closed). Draft to ussales@solisinverters.com pending in Gmail. Possible escalation: Al Delacruz (Al.Delacruz@solisinverters.com).</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-05-06 · via phone</span></div>
+    </div>
+  </div>
+  <div class="case-card waiting" data-status="waiting">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-027 · 2026-05-28</div>
+      <div class="case-name">Nelson Stump</div>
+      <div class="product">Sol-Ark 60K-3P-480V (3 units, parallel)</div></div>
+      <div class="badges"><span class="badge b-waiting">⏳ Waiting on Vendor</span>
+      <span class="badge b-prio">🟡 Normal</span><span class="age">14 days open</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">All 3 inverters tripped F63 (Arc Fault) simultaneously; W02 grid voltage warning ~2 hrs prior. All back online after reset.</span></div><div class="kv"><span class="k">Contact</span><span class="v">574-538-7166 / nwstump82@icloud.com</span></div><div class="kv"><span class="k">Notes</span><span class="v">Sol-Ark ticket 338568 open. Common-mode AFCI false-trip suspected (grid disturbance). Customer also needs 2 WiFi dongles for 2 of the 3 inverters (not on Ethernet).</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-05-28 · via phone</span></div>
+    </div>
+  </div>
+  <div class="case-card in-progress" data-status="in-progress">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-029 · 2026-06-08</div>
+      <div class="case-name">Nelson Stump</div>
+      <div class="product">3x Sol-Ark 60K-3P 480V + 100kW 3-phase generator</div></div>
+      <div class="badges"><span class="badge b-in-progress">🔧 In Progress</span>
+      <span class="badge b-prio">🟠 High</span><span class="age">3 days open</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Inverters fault/shut down on generator spool-down instead of islanding to battery</span></div><div class="kv"><span class="k">Contact</span><span class="v">574-538-7166 / nwstump82@icloud.com</span></div><div class="kv"><span class="k">Notes</span><span class="v">Synced from case folder 6/11 (row was missing). See case folder for 6/9 &amp; 6/11 updates.</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via phone</span></div>
+    </div>
+  </div>
+  <div class="case-card in-progress" data-status="in-progress">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-030 · 2026-06-11</div>
+      <div class="case-name">J &amp; R Woodworking</div>
+      <div class="product">Batteries (model TBD — confirm on site)</div></div>
+      <div class="badges"><span class="badge b-in-progress">🔧 In Progress</span>
+      <span class="badge b-prio">🟠 High</span><span class="age">0 days open</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Battery check needed — Derek to visit site ASAP</span></div><div class="kv"><span class="k">Contact</span><span class="v">(260) 463-4257 / Accounting@jrwoodworkingllc.com</span></div><div class="kv"><span class="k">Notes</span><span class="v">Per Derek 6/11: visit J&amp;R to check their batteries ASAP. Site: 3200 W 100 N, LaGrange, IN 46761. QBO customer #219.</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via phone</span></div>
+    </div>
+  </div>
+  <div class="case-card in-progress" data-status="in-progress">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-031 · 2026-06-11</div>
+      <div class="case-name">Nate Mullett (Decron)</div>
+      <div class="product">Off-grid system w/ generator backup (SO-000302)</div></div>
+      <div class="badges"><span class="badge b-in-progress">🔧 In Progress</span>
+      <span class="badge b-prio">🟡 Normal</span><span class="age">0 days open</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Generator auto-start test never completed — customer requesting finish-up visit</span></div><div class="kv"><span class="k">Contact</span><span class="v">Nathan@decron.us / 260-350-7677</span></div><div class="kv"><span class="k">Notes</span><span class="v">Customer emailed 6/9 asking to finish up. Derek replied 6/9: need batteries &lt;90% to test gen — awaiting his battery %. Site: 1665 S 1000W, Shipshewana, IN 46565. Invoice paid (check mailed 5/19).</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via email</span></div>
+    </div>
+  </div>
+  <div class="case-card done" data-status="done">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-001 · 2026-02-19</div>
+      <div class="case-name">David Yoder</div>
+      <div class="product">EG4 12KPV Inverter</div></div>
+      <div class="badges"><span class="badge b-done">✅ Closed</span>
+      <span class="badge b-prio">🟠 High</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Fans not running, burning smell, LCD not updating — flash drive update failed. Replacement requested from Zack @ EG4 Distributor Support.</span></div><div class="kv"><span class="k">Contact</span><span class="v">via pbpetersen@me.com (installer)</span></div><div class="kv"><span class="k">Resolution</span><span class="v">Replacement delivered (SEFL PRO# 135810795). Defective core S/N 4372830115 palletized &amp; EG4 LTL Pick-up Request Form submitted 6/1 with pallet photo (pickup requested 6/4). Awaiting EG4 BOL/pickup. Marked done by Derek 6/1.</span></div><div class="kv"><span class="k">Notes</span><span class="v">EG4 LTL form submitted 6/1 — confirmation received. Pickup 626 Mountain View Lane, Pearisburg VA (Business; forklift, no liftgate); pallet 48x40 ~175 lbs; White Pine Rd routing. RMA SOEG410878 / SERVTIK-018471 / Ticket #170531. | Confirmed done by Derek 6/11 — EG4 replacement received, defective core pickup handled.</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via email</span></div>
+    </div>
+  </div>
+  <div class="case-card done" data-status="done">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-021 · 2026-05-12</div>
+      <div class="case-name">Joel P</div>
+      <div class="product">EG4 12000XP Inverter</div></div>
+      <div class="badges"><span class="badge b-done">✅ Resolved</span>
+      <span class="badge b-prio">🟡 Normal</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Unit to be returned around July — Derek swapped with Sol-Ark 15K</span></div><div class="kv"><span class="k">Contact</span><span class="v">New Mexico (no email/phone on file)</span></div><div class="kv"><span class="k">Resolution</span><span class="v">Swapped EG4 12000XP with Sol-Ark 15K — taken care of per Derek 6/11.</span></div><div class="kv"><span class="k">Notes</span><span class="v">Return expected ~July 2026. Derek swapped 12000XP out with Sol-Ark 15K. No contact info on file yet. | 12000XP return still expected ~July 2026 — watch for it.</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via phone</span></div>
+    </div>
+  </div>
+  <div class="case-card done" data-status="done">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-022 · 2026-05-12</div>
+      <div class="case-name">Jeremy Miller</div>
+      <div class="product">Sol-Ark Inverter</div></div>
+      <div class="badges"><span class="badge b-done">✅ Resolved</span>
+      <span class="badge b-prio">🟠 High</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Sol-Ark not online — off-grid/grid-tie setup incomplete</span></div><div class="kv"><span class="k">Contact</span><span class="v">[DEREK: add contact]</span></div><div class="kv"><span class="k">Resolution</span><span class="v">Done per Derek 6/11 — Sol-Ark setup completed.</span></div><div class="kv"><span class="k">Notes</span><span class="v">Need email &amp; phone from Derek; Sol-Ark model TBD</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via phone</span></div>
+    </div>
+  </div>
+  <div class="case-card done" data-status="done">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-023 · 2026-04-28</div>
+      <div class="case-name">Matt Beechy</div>
+      <div class="product">SOLARMAN Smart portal</div></div>
+      <div class="badges"><span class="badge b-done">✅ Resolved</span>
+      <span class="badge b-prio">🟡 Normal</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">Plant access + inverter usage data not visible in Solarman</span></div><div class="kv"><span class="k">Contact</span><span class="v">datalogic@upwardmail.com</span></div><div class="kv"><span class="k">Resolution</span><span class="v">Solarman access + data visibility resolved — per Derek 6/11.</span></div><div class="kv"><span class="k">Notes</span><span class="v">Access resolved 5/11; follow-up 5/12 re: load data visibility</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via email</span></div>
+    </div>
+  </div>
+  <div class="case-card done" data-status="done">
+    <div class="card-top">
+      <div><div class="case-num">CS-2026-028 · 2026-06-01</div>
+      <div class="case-name">Leon (Sara) Yoder</div>
+      <div class="product">Schneider inverter (off-grid, genset)</div></div>
+      <div class="badges"><span class="badge b-done">✅ Resolved</span>
+      <span class="badge b-prio">🟡 Normal</span></div>
+    </div>
+    <div class="card-body"><div class="kv"><span class="k">Issue</span><span class="v">EEPROM error after shutdowns; Derek did software update — monitoring ~1 mo</span></div><div class="kv"><span class="k">Contact</span><span class="v">via Jolene relay (accounting@fantastech.org); 63373 CR 31, Goshen IN 46528; QBO #1520</span></div><div class="kv"><span class="k">Resolution</span><span class="v">Software update holding — good for now per Derek 6/11.</span></div><div class="kv"><span class="k">Notes</span><span class="v">Schneider (NOT EG4). Software update done [date per Derek]. Monitor through ~2026-07-01; reactivate if new errors via Jolene. Last inbound 5/26 (unread). | Reopen via Jolene if new EEPROM errors before ~7/1.</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">2026-06-11 · via phone</span></div>
+    </div>
+  </div>
+</div>
+<footer>Source of truth: Fantastech_Support_Tracker.xlsx (Google Drive · Claude info/Support). Regenerate via gen_support_dashboard.py.</footer>
+<script>
+document.querySelectorAll('.summary-card').forEach(sc => sc.addEventListener('click', () => {
+  document.querySelectorAll('.summary-card').forEach(x => x.classList.remove('active'));
+  sc.classList.add('active');
+  const f = sc.dataset.f.split(',');
+  document.querySelectorAll('.case-card').forEach(c =>
+    c.style.display = (sc.dataset.f === 'all' || f.includes(c.dataset.status)) ? '' : 'none');
+}));
+</script></body></html>

@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">12</div><div class="label">All Installs</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">13</div><div class="label">All Installs</div></div>
   <div class="summary-card open active" data-filter="open"><div class="num">10</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">12</div><div class="label">Scheduled</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">13</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -399,6 +399,52 @@
     <div class="activity-log">
       <ul class="tl-list">
         <li><span class="tl-date">Jun 16</span>Job added. Replace panels at the SR 120 site. Date TBD. (Davey not in inFlow — address to confirm.)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- INST-2026-013 · Arlin Lehman -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-013" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-013 · —</div>
+        <div class="order-name">Arlin Lehman</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="done-btn" data-id="INST-2026-013" title="Mark Arlin Lehman as done" aria-label="Mark Arlin Lehman as done">✅ Job Done</button>
+        <button type="button" class="reopen-btn" data-id="INST-2026-013" title="Reopen Arlin Lehman" aria-label="Reopen Arlin Lehman">↩ Reopen</button>
+        <button type="button" class="archive-btn" data-id="INST-2026-013" title="Archive Arlin Lehman" aria-label="Archive Arlin Lehman">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-013" title="Restore Arlin Lehman" aria-label="Restore Arlin Lehman">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">Scheduled Date</div>
+        <div class="sched-date">TBD</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Arlin Lehman</div>
+        <div class="ship-to-address">Nappanee, IN<br>(574) 658-3663<br><em style="color:#A0AEC0">Street address TBD</em></div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address"><em style="color:#A0AEC0">TBD — to confirm</em></div>
+      </div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Jun 16</span>Job added. Arlin Lehman, Nappanee. Scope &amp; street address to confirm.</li>
       </ul>
     </div>
   </div>

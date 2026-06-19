@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">13</div><div class="label">All Installs</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">14</div><div class="label">All Installs</div></div>
   <div class="summary-card open active" data-filter="open"><div class="num">10</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">13</div><div class="label">Scheduled</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">14</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -445,6 +445,58 @@
     <div class="activity-log">
       <ul class="tl-list">
         <li><span class="tl-date">Jun 16</span>Job added. Arlin Lehman, Nappanee. Scope &amp; street address to confirm.</li>
+      </ul>
+    </div>
+  </div>
+  <!-- INST-2026-014 · Elmer Mast -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-014" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-014 · —</div>
+        <div class="order-name">Elmer Mast</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="done-btn" data-id="INST-2026-014" title="Mark Elmer Mast as done" aria-label="Mark Elmer Mast as done">✅ Job Done</button>
+        <button type="button" class="reopen-btn" data-id="INST-2026-014" title="Reopen Elmer Mast" aria-label="Reopen Elmer Mast">↩ Reopen</button>
+        <button type="button" class="archive-btn" data-id="INST-2026-014" title="Archive Elmer Mast" aria-label="Archive Elmer Mast">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-014" title="Restore Elmer Mast" aria-label="Restore Elmer Mast">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">Scheduled Date</div>
+        <div class="sched-date">TBD</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Elmer Mast</div>
+        <div class="ship-to-address">7420 W 050 S, Shipshewana, IN 46565<br>(260) 344-4511</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Diagnose why the basement circuit is not live — troubleshoot dead circuit / restore power.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="condition"><span class="note-cat">Site Condition</span>Basement circuit reported not live — find cause (breaker, wiring, connection).</li>
+        <li class=""><span class="note-cat">Job History</span>Active install — wiring specs previously approved (6 AWG inverter&rarr;breaker box; 12 AWG to receptacle).</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Jun 19</span>Job added. Visit to diagnose basement circuit not live. Date TBD.</li>
       </ul>
     </div>
   </div>

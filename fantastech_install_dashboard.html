@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">14</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">10</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">14</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">15</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">11</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">15</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -500,6 +500,51 @@
       <ul class="tl-list">
         <li><span class="tl-date">Jun 19</span>Flagged PRIORITY — visit before next weekend (by Fri Jun 26).</li>
         <li><span class="tl-date">Jun 19</span>Job added. Visit to diagnose basement circuit not live. Date TBD.</li>
+      </ul>
+    </div>
+  </div>
+  <!-- INST-2026-015 · Jonas Jr. Miller -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-015" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-015 · —</div>
+        <div class="order-name">Jonas Jr. Miller</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="done-btn" data-id="INST-2026-015" title="Mark Jonas Jr. Miller as done" aria-label="Mark Jonas Jr. Miller as done">✅ Job Done</button>
+        <button type="button" class="reopen-btn" data-id="INST-2026-015" title="Reopen Jonas Jr. Miller" aria-label="Reopen Jonas Jr. Miller">↩ Reopen</button>
+        <button type="button" class="archive-btn" data-id="INST-2026-015" title="Archive Jonas Jr. Miller" aria-label="Archive Jonas Jr. Miller">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-015" title="Restore Jonas Jr. Miller" aria-label="Restore Jonas Jr. Miller">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Jonas Jr. Miller</div>
+        <div class="ship-to-address">15347 CR 146, Syracuse, IN 46567<br>574-501-0219</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Install generator contactor.</div>
+      </div>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Jun 23</span>Job added. Install generator contactor. Date TBD.</li>
       </ul>
     </div>
   </div>

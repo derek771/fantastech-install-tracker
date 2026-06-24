@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">15</div><div class="label">All Installs</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">16</div><div class="label">All Installs</div></div>
   <div class="summary-card open active" data-filter="open"><div class="num">11</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">15</div><div class="label">Scheduled</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">16</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -546,6 +546,56 @@
       <ul class="tl-list">
         <li><span class="tl-date">Jun 23</span>Scheduled for Fri Jun 26.</li>
         <li><span class="tl-date">Jun 23</span>Job added. Install generator contactor.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- INST-2026-016 · Jay Bontrager -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-016" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-016 · —</div>
+        <div class="order-name">Jay Bontrager</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-016" title="Archive Jay Bontrager" aria-label="Archive Jay Bontrager">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-016" title="Restore Jay Bontrager" aria-label="Restore Jay Bontrager">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD — when Jay is home</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Jay Bontrager</div>
+        <div class="ship-to-address">11782 CR 24, Middlebury, IN 46540</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Pre-install site visit — confirm receptacle locations with customer</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Where does he want the receptacles hooked up — confirm on arrival</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Jun 24</span>Job added. Go over when Jay is home — walk the site and confirm receptacle hookup locations.</li>
       </ul>
     </div>
   </div>

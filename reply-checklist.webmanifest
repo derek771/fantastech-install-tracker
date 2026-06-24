@@ -1,0 +1,14 @@
+{
+  "name": "Reply Checklist",
+  "short_name": "Replies",
+  "description": "Who's waiting on a reply from Derek — tap to clear.",
+  "start_url": "reply-checklist.html",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#c0392b",
+  "icons": [
+    { "src": "reply-checklist-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "reply-checklist-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

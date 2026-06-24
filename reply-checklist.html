@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reply Checklist</title>
+<meta name="theme-color" content="#c0392b">
+<link rel="manifest" href="reply-checklist.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Reply Checklist">
+<link rel="apple-touch-icon" href="reply-checklist-icon-192.png">
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", Arial, sans-serif; color:#15171a; background:#fafafa; margin:0; padding:18px 16px 60px; line-height:1.4; }
+  .head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  h1 { font-size:20px; margin:0 0 2px; }
+  .sub { color:#666; font-size:12.5px; margin:0; }
+  .counter { font-size:13px; color:#333; background:#fff; border:1px solid #e3e3e3; border-radius:20px; padding:6px 14px; white-space:nowrap; font-weight:600; }
+  .counter b { color:#c0392b; }
+  .bar { display:flex; gap:8px; margin:14px 0 6px; flex-wrap:wrap; align-items:center; }
+  .btn { font-size:12.5px; border:1px solid #d9d9d9; background:#fff; color:#333; border-radius:7px; padding:6px 11px; cursor:pointer; }
+  .btn:hover { background:#f0f0f0; }
+  #installBtn { background:#c0392b; color:#fff; border-color:#c0392b; display:none; }
+  h2 { font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; color:#444; margin:20px 0 6px; padding-bottom:4px; border-bottom:2px solid #c0392b; }
+  .item { display:flex; gap:11px; align-items:flex-start; background:#fff; border:1px solid #ececec; border-radius:9px; padding:11px 12px; margin:7px 0; cursor:pointer; transition:transform .15s ease, opacity .15s ease, background .1s; }
+  .item:hover { background:#fbfbfb; border-color:#dcdcdc; }
+  .item:active { transform:scale(.995); }
+  .box { flex:0 0 20px; width:20px; height:20px; border:2px solid #b7b7b7; border-radius:5px; margin-top:1px; display:flex; align-items:center; justify-content:center; transition:.12s; }
+  .item:hover .box { border-color:#c0392b; }
+  .box svg { width:13px; height:13px; }
+  .who { font-weight:700; font-size:14.5px; }
+  .what { font-size:13px; color:#333; margin-top:1px; }
+  .tag { display:inline-block; font-size:10.5px; font-weight:700; color:#fff; background:#c0392b; padding:1px 7px; border-radius:4px; margin-left:6px; vertical-align:middle; }
+  .tag.money { background:#1f7a3d; }
+  .tag.cb { background:#2c6fb3; }
+  .removing { opacity:0; transform:translateX(40px); }
+  .done-list .item { opacity:.6; }
+  .done-list .who { text-decoration:line-through; color:#888; }
+  .empty-all { text-align:center; color:#777; padding:50px 20px; }
+  .empty-all .big { font-size:40px; }
+  .foot { color:#888; font-size:11.5px; margin-top:26px; border-top:1px solid #eee; padding-top:10px; }
+  #doneWrap { display:none; }
+</style>
+</head>
+<body>
+<div class="head">
+  <div>
+    <h1>Reply Checklist</h1>
+    <p class="sub">Who's waiting on you · inbox scan Jun 9–23, 2026. Tap an item to clear it — it stays cleared.</p>
+  </div>
+  <div class="counter" id="counter">0 open</div>
+</div>
+
+<div class="bar">
+  <button class="btn" id="installBtn">⬇ Install app</button>
+  <button class="btn" id="toggleDone">Show cleared (0)</button>
+  <button class="btn" id="resetAll">Reset all</button>
+</div>
+
+<div id="open"></div>
+
+<div id="doneWrap">
+  <h2 style="border-color:#999;color:#777;">Cleared</h2>
+  <div id="done" class="done-list"></div>
+</div>
+
+<p class="foot">Installable app — on desktop use the "Install app" button (or your browser's install icon in the address bar); on phone use Share → Add to Home Screen. Cleared items save on each device. "Reset all" brings everything back.</p>
+
+<script>
+const ITEMS = [
+  {id:"jolene-balance", sec:"Do first — money & deadlines", who:"Jolene (your office)", what:"Pay the remaining Balance order FIN-334938 ($2,537.27), due June 28. (FIN-331554 already paid.)", tag:"$ due 6/28", tt:"money"},
+  {id:"thomas-mate", sec:"Do first — money & deadlines", who:"Thomas — Mate Solar", what:"Accepted credit terms; settle the $75,600 balance once the Trina container lands. Reply drafted.", tag:"$75,600", tt:"money"},
+  {id:"manda-permit", sec:"Do first — money & deadlines", who:"Manda DeWald — LaGrange County", what:"Sign the permit certificates for Lavon Borkholder and send back. Reply drafted.", tag:"permit", tt:""},
+  {id:"wilmer-quote", sec:"Do first — money & deadlines", who:"Wilmer Peachey", what:"Off-grid quote already sent (3 options). Waiting on his pick, then build the proposal PDF.", tag:"quoted", tt:""},
+  {id:"daniel-quotes", sec:"Do first — money & deadlines", who:"Daniel Schlabach — Excel Energy", what:"Country Shoe Shop lighting: reply drafted asking 5 open items. Still owe the Option A & C Victron quotes.", tag:"in progress", tt:""},
+
+  {id:"matt-cullen", sec:"Customers & vendors awaiting your reply", who:"Matt Cullen — American Solar", what:"Asked you to send your inventory list.", tag:"", tt:""},
+  {id:"devin-solark", sec:"Customers & vendors awaiting your reply", who:"Devin Mangru — Sol-Ark", what:"Wants your status & feedback on the MySolArk Installer App beta.", tag:"", tt:""},
+  {id:"jeff-gsd", sec:"Customers & vendors awaiting your reply", who:"Jeff Lantor — GSD Renewables", what:"Offered Waaree 625W \"B\" grade pallets @ $0.13/W (720 units, no warranty). Yes or no?", tag:"", tt:""},
+  {id:"jennifer-liwer", sec:"Customers & vendors awaiting your reply", who:"Jennifer — Liwer Electronic", what:"Sent charger photos; their max for 48V is 30A (you wanted 100A). Tell her how to proceed.", tag:"", tt:""},
+  {id:"lisa-freight", sec:"Customers & vendors awaiting your reply", who:"Lisa Beaumont — Quality Freight Rate", what:"Needs the load or BOL number for the damaged South Dakota shipment.", tag:"", tt:""},
+  {id:"macarena-nassau", sec:"Customers & vendors awaiting your reply", who:"Macarena Diaz — Nassau National Cable", what:"Following up on quote SDQ226-4122 — wants feedback on pricing.", tag:"", tt:""},
+  {id:"kim-ringtele", sec:"Customers & vendors awaiting your reply", who:"Kim — RingTele", what:"Complete & return the number-port form for 574-218-1973.", tag:"", tt:""},
+  {id:"marion-ringtele", sec:"Customers & vendors awaiting your reply", who:"Marion — RingTele", what:"Fill out the texting sign-up form and send it back.", tag:"", tt:""},
+  {id:"paul-gehman", sec:"Customers & vendors awaiting your reply", who:"Paul Lamicela — Gehman", what:"Asked for statements (via Jolene) — find & send what he needs.", tag:"", tt:""},
+  {id:"empshield-pay", sec:"Customers & vendors awaiting your reply", who:"EMP Shield (Nancy)", what:"Order #622237 — tax-exemption form sent; confirm payment so it ships.", tag:"", tt:""},
+  {id:"jolene-pickup", sec:"Customers & vendors awaiting your reply", who:"Jolene (your office)", what:"She asked: \"Which order is he picking up?\" — answer her.", tag:"", tt:""},
+
+  {id:"cb-panels", sec:"Phone messages — call back", who:"Joseph Hochstetler", what:"Wants solar panels — call back.", tag:"330-641-6924", tt:"cb"},
+  {id:"cb-battery", sec:"Phone messages — call back", who:"Customer — battery not charging", what:"Hasn't charged right for ~a day, running diesel. Troubleshoot.", tag:"call", tt:"cb"},
+  {id:"cb-eg4", sec:"Phone messages — call back", who:"Customer — EG4 charge controller", what:"No fault code, fault light on after on/off switch cycle.", tag:"call", tt:"cb"},
+  {id:"cb-longi", sec:"Phone messages — call back", who:"Customer — Longi 585W owner", what:"Bought Longi 585W in 2024; wants price to add more panels.", tag:"call", tt:"cb"},
+  {id:"cb-edison", sec:"Phone messages — call back", who:"Customer — Edison inverter", what:"Wants panel sizing to pair with an Edison inverter (24 ft hip roof).", tag:"call", tt:"cb"},
+  {id:"cb-charger-pickup", sec:"Phone messages — call back", who:"Customer — 48V charger pickup", what:"Charger is in & ready; call to arrange pickup.", tag:"call", tt:"cb"},
+  {id:"cb-got-charger", sec:"Phone messages — call back", who:"Customer — got his charger", what:"Received his charger; wants a call back.", tag:"call", tt:"cb"},
+
+  {id:"alvin-ringtele", sec:"Optional / low priority", who:"Alvin — RingTele", what:"Sent portal access; reply only if you need help with auto-attendant greetings.", tag:"", tt:""}
+];
+const SECTIONS = ["Do first — money & deadlines","Customers & vendors awaiting your reply","Phone messages — call back","Optional / low priority"];
+const KEY = "fantastech_reply_checklist_cleared_v1";
+const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+
+function load(){ try { return new Set(JSON.parse(localStorage.getItem(KEY)||"[]")); } catch(e){ return new Set(); } }
+function save(s){ try{ localStorage.setItem(KEY, JSON.stringify([...s])); }catch(e){} }
+let cleared = load();
+let showDone = false;
+
+function itemEl(it, done){
+  const d = document.createElement("div");
+  d.className = "item";
+  d.innerHTML = `<div class="box">${done?CHECK:""}</div><div><span class="who">${it.who}</span>${it.tag?`<span class="tag ${it.tt}">${it.tag}</span>`:""}<div class="what">${it.what}</div></div>`;
+  if(done){
+    d.querySelector(".box").style.borderColor = "#c0392b";
+    d.title = "Tap to restore";
+    d.onclick = ()=>{ cleared.delete(it.id); save(cleared); render(); };
+  } else {
+    d.onclick = ()=>{
+      d.querySelector(".box").innerHTML = CHECK;
+      d.querySelector(".box").style.borderColor = "#c0392b";
+      d.classList.add("removing");
+      setTimeout(()=>{ cleared.add(it.id); save(cleared); render(); }, 180);
+    };
+  }
+  return d;
+}
+
+function render(){
+  const openWrap = document.getElementById("open");
+  const doneWrap = document.getElementById("done");
+  openWrap.innerHTML = ""; doneWrap.innerHTML = "";
+  const openItems = ITEMS.filter(i=>!cleared.has(i.id));
+  const doneItems = ITEMS.filter(i=>cleared.has(i.id));
+  if(openItems.length===0){
+    openWrap.innerHTML = '<div class="empty-all"><div class="big">✅</div><div>Inbox zero — nobody waiting on you.</div></div>';
+  } else {
+    SECTIONS.forEach(sec=>{
+      const list = openItems.filter(i=>i.sec===sec);
+      if(!list.length) return;
+      const h = document.createElement("h2"); h.textContent = sec; openWrap.appendChild(h);
+      list.forEach(it=>openWrap.appendChild(itemEl(it,false)));
+    });
+  }
+  document.getElementById("counter").innerHTML = `<b>${openItems.length}</b> open · ${doneItems.length} cleared`;
+  document.getElementById("toggleDone").textContent = (showDone?"Hide cleared (":"Show cleared (")+doneItems.length+")";
+  document.getElementById("doneWrap").style.display = (showDone && doneItems.length)?"block":"none";
+  if(showDone) doneItems.forEach(it=>doneWrap.appendChild(itemEl(it,true)));
+}
+
+document.getElementById("toggleDone").onclick = ()=>{ showDone=!showDone; render(); };
+document.getElementById("resetAll").onclick = ()=>{ cleared = new Set(); save(cleared); showDone=false; render(); };
+render();
+
+// PWA install
+let deferredPrompt=null;
+const ib=document.getElementById("installBtn");
+window.addEventListener("beforeinstallprompt",(e)=>{ e.preventDefault(); deferredPrompt=e; ib.style.display="inline-block"; });
+ib.onclick=async()=>{ if(!deferredPrompt) return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; ib.style.display="none"; };
+window.addEventListener("appinstalled",()=>{ ib.style.display="none"; });
+if("serviceWorker" in navigator){ window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{})); }
+</script>
+</body>
+</html>

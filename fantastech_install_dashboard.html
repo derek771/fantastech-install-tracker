@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">16</div><div class="label">All Installs</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">17</div><div class="label">All Installs</div></div>
   <div class="summary-card open active" data-filter="open"><div class="num">11</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">16</div><div class="label">Scheduled</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">17</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -596,6 +596,56 @@
     <div class="activity-log">
       <ul class="tl-list">
         <li><span class="tl-date">Jun 24</span>Job added. Go over when Jay is home — walk the site and confirm receptacle hookup locations.</li>
+      </ul>
+    </div>
+  </div>
+  <!-- INST-2026-017 · Jeremy L Frey -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-017" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-017 · —</div>
+        <div class="order-name">Jeremy L Frey</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-017" title="Archive Jeremy L Frey" aria-label="Archive Jeremy L Frey">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-017" title="Restore Jeremy L Frey" aria-label="Restore Jeremy L Frey">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner future">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">July 3, 2026 (Friday)</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Jeremy L Frey</div>
+        <div class="ship-to-address"><em style="color:#A0AEC0">Address TBD (not in inFlow)</em> · 📞 (260) 214-0663</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Deliver &amp; install WiFi monitoring dongle on Jeremy’s EG4 6000XP off-grid system so it reports to the EG4 monitor portal — enables remote diagnosis of the ~15-sec total power loss he had while running a mixer (then auto-recovered).</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Diagnosis</span>Symptom: power dropped out ~15 sec while mixing, then came back. Likely overload / battery BMS surge trip on a single 6000XP + single battery. Pull the fault/event log from the monitor portal once the dongle is online.</li>
+        <li class=""><span class="note-cat">System</span>1× EG4 6000XP Off-Grid (6kW) + 1× Koor 51.2V 300Ah 15kWh battery + 7× Mate Solar 580W panels (Invoice #2491, 11/6/2025).</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Jun 30</span>Job added. Bring WiFi dongle Fri Jul 3 — install on the 6000XP for remote monitoring. He lost all power ~15s while mixing, then it auto-recovered; need the event log to confirm overload vs. BMS trip.</li>
       </ul>
     </div>
   </div>

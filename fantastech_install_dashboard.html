@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">20</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">11</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">20</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">21</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">12</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">21</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -794,6 +794,58 @@
     <div class="activity-log">
       <ul class="tl-list">
         <li><span class="tl-date">Jul 20</span>Job added. Trenching Tue Jul 21; may continue Wed Jul 22 if not done.</li>
+      </ul>
+    </div>
+  </div>
+  <!-- INST-2026-021 · Nate Kurtz -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-021" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-021 · —</div>
+        <div class="order-name">Nate Kurtz</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-021" title="Archive Nate Kurtz" aria-label="Archive Nate Kurtz">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-021" title="Restore Nate Kurtz" aria-label="Restore Nate Kurtz">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Nate Kurtz</div>
+        <div class="ship-to-address"><em style="color:#A0AEC0">Address TBD</em><br>(260) 593-9119</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">New lead — 600 ft of wire. Wants BOTH prices quoted: the wire run, and going with his own solar instead.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>Callback not made yet. Lead came in from Emily 7/30 — nobody has reached him.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Site address, wire gauge / voltage / load on the 600 ft run, and what he is feeding — confirm on the call.</li>
+        <li class="condition"><span class="note-cat">Pricing</span>RETAIL tier, end customer (not a dealer). NOT tax exempt — Indiana 7% applies. Quote wire AND standalone-solar side by side.</li>
+        <li class=""><span class="note-cat">inFlow</span>Customer record already exists — created 7/30, no address on file yet.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Jul 30</span>Lead added from Emily's list. 600 ft wire vs. his own solar — wants both prices. No address yet; get it on the callback.</li>
       </ul>
     </div>
   </div>

@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">24</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">15</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">24</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">25</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">16</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">25</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1003,6 +1003,57 @@
     <div class="activity-log">
       <ul class="tl-list">
         <li><span class="tl-date">Aug 24</span>Job added — reduced install option (8 panels, 1 battery, same Sol-Ark 12K-2P-LL inverter, Boviet 620W panels). Need to confirm with Sam: Sol-Ark 12K vs Koor off-grid 12K inverter. Install date and labor hours still TBD.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="order-card scheduled" data-inst-id="INST-2026-025" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-025 · —</div>
+        <div class="order-name">Lynn Schmucker</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-025" title="Archive Lynn Schmucker" aria-label="Archive Lynn Schmucker">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-025" title="Restore Lynn Schmucker" aria-label="Restore Lynn Schmucker">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner future">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">Week of Oct 5, 2026</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Lynn Schmucker</div>
+        <div class="ship-to-address">11207 N 700 W, Topeka, IN<br>(574) 501-4783 / (260) 350-2509<br><em style="color:#A0AEC0">New site — moving from his current address on file. inFlow has his old house (14920 State Rd 4, Goshen) — do NOT use that for this job.</em></div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Full install (not a kit) — pole-mounted solar. Sol-Ark 12K-2P-LL inverter, 2x Koor 16 kWh battery, 24x Boviet 620W panels. Preliminary equipment total ~$15,199, not counting racking, wire, BOS extras, or labor.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>Lynn's house hasn't sold yet — he wants to walk the new site with Derek to place the pole/panels once it does. Pole racking and PV wire run length can't be priced until then.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Lynn said "probably a 600 amp system" — read as ~600Ah / 2x Koor 16 kWh batteries. Confirm that's actually what he means before finalizing.</li>
+        <li class=""><span class="note-cat">Loads</span>Running: shop tools, two freezers, a water pump, a dehumidifier, and some air filters.</li>
+        <li class="condition"><span class="note-cat">Quote status</span>Since this is a full install (no Kit line), still need to price: DC/PV disconnect, 4/0 battery/inverter cable + Class-T fuse, grounding kit, AC subpanel + breakers — the Kit board would have absorbed these but there's no Kit here.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Aug 24</span>Job added. Lynn emailed about new solar 8/24, confirmed week of Oct 5 for install. Preliminary quote built around his own numbers (10,000W-class inverter → Sol-Ark 12K-2P-LL per Derek, ~600A → 2x Koor 16kWh). Waiting on his house to sell before a site walk sets exact placement.</li>
       </ul>
     </div>
   </div>

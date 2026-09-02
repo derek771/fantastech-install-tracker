@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">25</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">16</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">25</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">26</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">17</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">26</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1057,6 +1057,62 @@
       </ul>
     </div>
   </div>
+<!-- INST-2026-026 · Wayne Bontrager -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-026" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-026 · SQ-000465</div>
+        <div class="order-name">Wayne Bontrager (WestStar Enterprises)</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-026" title="Archive Wayne Bontrager" aria-label="Archive Wayne Bontrager">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-026" title="Restore Wayne Bontrager" aria-label="Restore Wayne Bontrager">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD — quote is out, not accepted yet</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Wayne Bontrager — Duck Barn</div>
+        <div class="ship-to-address">4215 N IN-5, Shipshewana, IN 46565<br>Cell (260) 977-9048 · Office 260-768-7882 x104<br><em style="color:#A0AEC0">Karen Lehman (office mgr, x101) reads weststarenterprise@gmail.com and passes things to Wayne. He does not email.</em></div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Add 8x Boviet 620W bifacial panels (4,960W) to the Duck Barn on P-Rail tilt racking, one new row, plus move the existing bottom row of panels up. New panels wired as one 8-panel string on its own MPPT. SQ-000465 — $5,541.81 installed, good through Sept 16, 2026.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>Quote SQ-000465 is drafted but NOT SENT — waiting on Derek's go-ahead. Nothing is confirmed and no materials are ordered.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>How many panels are in the bottom row he wants moved, and how far up? Labor is priced on an assumption of 8 panels. More than that and the number goes up.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>How many panels are on the barn now, and what inverter do they feed? Needed to confirm a free MPPT is open for the new string.</li>
+        <li class="condition"><span class="note-cat">Unknown</span>NOTHING on file anywhere says what is physically on the Duck Barn today — no inFlow orders under this customer, and his 2025 panel quotes (QBO Est. 2458 for 32 panels, Est. 2462 for 8 panels, both Mate Solar 580W) are still sitting Pending and were never converted. Walk the roof before this becomes an order.</li>
+        <li class=""><span class="note-cat">Electrical</span>8x Boviet 620W in one series string = 443V cold Voc, 15.94A. Fits a Sol-Ark 15K-2P (500V max, 26A per MPPT, 3 MPPTs) with room. Existing panels are NOT re-wired. If the barn already runs 580W panels, the new 620W must stay on their own tracker — do not mix them in one string.</li>
+        <li class="condition"><span class="note-cat">Labor</span>32 man-hours, 2-man crew, $80/man-hour = $2,560, plus $180 trip. ESTIMATE ONLY. Breakdown: 16 hrs racking + 8 new panels, 8 hrs PV string / terminations / SPD / ground, 8 hrs moving the bottom row.</li>
+        <li class=""><span class="note-cat">History</span>Wayne bought a Sol-Ark 15K + 10x Pytes V5 from us in Nov 2023 (QBO Invoice 1320, $29,792.83, paid — with 8 months of late fees on it). Watch the terms on this one.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Sep 1</span>Wayne left a voicemail for Derek from (260) 977-9048 about moving panels and adding more. Auto-transcript is mostly garbled — do not quote it back to him.</li>
+        <li><span class="tl-date">Sep 2</span>Job added. SQ-000465 built in inFlow at $5,541.81 installed off live retail prices. Quote email drafted to Karen/Wayne, CC Derek — NOT SENT, holding for Derek. Two open questions went to Wayne, not Derek: bottom-row panel count, and what is on the barn now.</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="empty-state" id="empty-state">No installs in this category.</div>
@@ -1069,7 +1125,7 @@
   <div class="archive-list" id="archive-list"></div>
 </div>
 
-<footer>Fantastech Energy Solution LLC · derek@fantastech.org · Updated Aug 20, 2026</footer>
+<footer>Fantastech Energy Solution LLC · derek@fantastech.org · Updated Sep 2, 2026</footer>
 
 <script>
 (function () {

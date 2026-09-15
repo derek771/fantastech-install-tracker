@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">27</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">18</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">27</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">28</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">19</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">28</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1168,6 +1168,65 @@
       </ul>
     </div>
   </div>
+
+  <!-- INST-2026-028 · Nate P Yoder (Nathan Yoder) -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-028" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-028 · SQ-000385 (now a sales order)</div>
+        <div class="order-name">Nate P Yoder — Derek calls him Nathan Yoder</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-028" title="Archive Nate P Yoder" aria-label="Archive Nate P Yoder">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-028" title="Restore Nate P Yoder" aria-label="Restore Nate P Yoder">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD — he is asking for a date</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Nate P Yoder — egg barn</div>
+        <div class="ship-to-address">3940 N 1150 W, Shipshewana, IN 46565<br>Phone (574) 544-2164<br>Called from (574) 825-5117</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Panel add — 8x 620W Boviet B-grade in ONE series string on the EG4 6000XP's open MPPT2, plus one MidNite 600 VDC surge protector.<br>Same visit: set TOTAL GEN CHARGE to <b>4.5 kW</b> and look at his 30 amp fuse question.<br><b>Order total $1,739.85</b> — parts $1,626.03 plus Indiana tax $113.82. <b>LABOR AND TRIP: TBD</b>, not priced and not quoted.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Labor</span>LABOR AND TRIP ARE TBD. Derek is holding them off. Nothing for install is on this order and nothing was ever quoted to him.</li>
+        <li class="warning"><span class="note-cat">Pending</span>NOT ON THE ORDER: PV wire, MC4 pairs, racking for the 8 panels, PV disconnect. From the quote's own notes. The parts list is short until those are added.</li>
+        <li class="warning"><span class="note-cat">Pending</span>CONFIRM the existing array is 6x 390W (2,340W) on MPPT1 and not 18 panels, before anything is ordered.</li>
+        <li class=""><span class="note-cat">Layout</span>Cold Voc of 8x Boviet 620W is 442V against the 480V inverter max — safe. Do NOT substitute 8x Waaree 585W, they hit 480.8V cold and are over the limit.</li>
+        <li class=""><span class="note-cat">Settings</span>Set TOTAL GEN CHARGE to 4.5 kW. His own request — inverter sits at 5.5 kW now and the generator tops out near 5.65-5.7 kW. He wants 4.5 kW for the life of the generator motor.</li>
+        <li class=""><span class="note-cat">Site Condition</span>Smart-start generator problem is FIXED (his words, Sep 14). Batteries look fine to him.</li>
+        <li class=""><span class="note-cat">Layout</span>Load sheet came from Kevin Stutzman at Michiana Equipment, Aug 10 2026 (file "Nathan Yoder.xlsx").</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Sep 15</span>SQ-000385 turned into a sales order on Derek's go. Labor and trip were added, then taken back off at his word — both now TBD. Tax scheme was on the junk "FALSE" scheme with no tax; moved to Indiana Sales Tax, $113.82 on the parts. Total $1,739.85. NOT invoiced.</li>
+        <li><span class="tl-date">Sep 14</span>He left a voicemail asking for the solar panel install date and asking to set the gen charge to 4.5 kW. Job added here.</li>
+        <li><span class="tl-date">Aug 11</span>SQ-000385 built — 8 panels + surge protector, $1,626.03. No record of it ever being emailed to him.</li>
+        <li><span class="tl-date">Aug 10</span>Load sheet pulled from Kevin Stutzman for the power design.</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="empty-state" id="empty-state">No installs in this category.</div>
@@ -1180,7 +1239,7 @@
   <div class="archive-list" id="archive-list"></div>
 </div>
 
-<footer>Fantastech Energy Solution LLC · derek@fantastech.org · Updated Sep 2, 2026</footer>
+<footer>Fantastech Energy Solution LLC · derek@fantastech.org · Updated Sep 15, 2026</footer>
 
 <script>
 (function () {

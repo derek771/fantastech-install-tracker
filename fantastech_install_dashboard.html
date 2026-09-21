@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">29</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">20</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">29</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">30</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">21</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">30</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1280,6 +1280,63 @@
         <li><span class="tl-date">Sep 15</span>SO-001063 rebuilt to match SQ-000509, delivery added at $58.88, invoiced $19,686.82. Paid in full by check #102 (dated Sep 14). Job added: deliver + pound 3 posts.</li>
         <li><span class="tl-date">Sep 8</span>Derek sent the 18-panel Boviet kit with post pounding, $19,686.82. Final hookup left as time and material.</li>
         <li><span class="tl-date">Sep 3</span>Chris said it is a go (bank financing).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- INST-2026-030 · Wayne &amp; Leah Yoder -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-030" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-030 · —</div>
+        <div class="order-name">Wayne &amp; Leah Yoder — Sol-Ark overload service call</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-030" title="Archive Wayne Yoder" aria-label="Archive Wayne Yoder">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-030" title="Restore Wayne Yoder" aria-label="Restore Wayne Yoder">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD — he asked us to stop in, set a date</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Wayne &amp; Leah Yoder</div>
+        <div class="ship-to-address">10755 CR 38, Millersburg, IN 46543<br>Phone 574-642-0243<br>No real email on file</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">SERVICE CALL: <b>Sol-Ark going into overload too easily.</b><br>Batteries charge fine. As soon as anything else runs, it overloads. A smaller generator went in about a year ago and we came out once already — it did not help.<br><b>His system (invoice 1610, 7/26/2024, $15,123.99):</b> Sol-Ark 5K-1P-N 120V (4,800W / 40A continuous, 7,200VA for 5 sec), 4x Pytes V5 48V 100Ah (~20 kWh, heater pads), listed with 10,400W solar, 8 tilt racks, 3 MidNite surge protectors.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Cause 1</span>GENERATOR overload — the GEN port on a 5K only carries 30A / 3,600W. Free fix in settings: <b>Gen Limit Power</b> (Basic Setup → Advanced) set to the gen’s real watts, and drop the Gen charge <b>“A”</b> in Battery Setup so the charger backs off when house loads come on. “Charging alone is fine, charging plus anything else trips” is the textbook symptom.</li>
+        <li class="warning"><span class="note-cat">Cause 2</span>INVERTER ceiling — 4,800W / 40A at 120V is all the 5K has. If it overloads with the gen OFF, no setting fixes it: bigger inverter or a second 5K in parallel.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>What number shows on the screen when it faults — F15, F18 or F34?</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Does it overload with the generator shut OFF too, or only when the gen is running?</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Generator make, model and watts</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Is the gen wired to the GEN terminal or the GRID terminal?</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>What is running when it trips — well pump, welder, air compressor, heater?</li>
+        <li class="condition"><span class="note-cat">Billing</span>Invoice 1610 is his only invoice on file. The earlier service visit was never billed.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Sep 21</span>Voicemail from 574-642-0243 asking us to stop in; Em passed it along. Job added. Overload narrowed to generator settings vs the 5K’s 4,800W ceiling — five questions to answer on the call.</li>
       </ul>
     </div>
   </div>

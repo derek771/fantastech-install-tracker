@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">30</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">21</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">30</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">31</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">22</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">31</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1340,6 +1340,57 @@
       </ul>
     </div>
   </div>
+  <!-- INST-2026-031 · Eugene Bontrager -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-031" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-031 · SQ-000585</div>
+        <div class="order-name">Eugene Bontrager — off-grid install (quote out, NOT accepted)</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-031" title="Archive Eugene Bontrager" aria-label="Archive Eugene Bontrager">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-031" title="Restore Eugene Bontrager" aria-label="Restore Eugene Bontrager">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD — Derek told him probably around November</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Eugene Bontrager</div>
+        <div class="ship-to-address">68954 Co Rd 27, New Paris, IN 46553<br>Phone (260) 585-5756<br>No email on file</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Off-grid system per <b>SQ-000585 ($14,947.39)</b>:<br>Koor 15KW All-in-One inverter · Koor 16K Pro 51.2V 314Ah battery · 8x 620W Boviet B-grade panels on 8 tilt racks · 50 ft URD 4-4-4-4 · 400 ft 10 AWG PV wire (200 red / 200 black)<br>Labor $3,750 · Trip $400 · Trencher rental $400</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>QUOTE IS OUT AND NOT ACCEPTED — do not send a crew or pull material off this card.</li>
+        <li class="condition"><span class="note-cat">Timing</span>Derek told him the install is probably around November. No date set.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Email address — nothing on file.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Sep 22</span>Job added off SQ-000585. Address fixed to 68954 Co Rd 27, New Paris IN. Derek told him install is probably around November — not a locked-in date, quote not accepted yet.</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="empty-state" id="empty-state">No installs in this category.</div>
@@ -1352,7 +1403,7 @@
   <div class="archive-list" id="archive-list"></div>
 </div>
 
-<footer>Fantastech Energy Solution LLC · derek@fantastech.org · Updated Sep 15, 2026</footer>
+<footer>Fantastech Energy Solution LLC · derek@fantastech.org · Updated Sep 22, 2026</footer>
 
 <script>
 (function () {

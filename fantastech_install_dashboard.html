@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">31</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">22</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">31</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">32</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">23</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">32</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1388,6 +1388,63 @@
     <div class="activity-log">
       <ul class="tl-list">
         <li><span class="tl-date">Sep 22</span>Job added off SQ-000585. Address fixed to 68954 Co Rd 27, New Paris IN. Derek told him install is probably around November — not a locked-in date, quote not accepted yet.</li>
+      </ul>
+    </div>
+  </div>
+  <!-- INST-2026-032 · Ervin Lehman -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-032" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-032 · SQ-000485 / 486 / 487</div>
+        <div class="order-name">Ervin Lehman — off-grid dairy solar (bundle not picked yet)</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-032" title="Archive Ervin Lehman" aria-label="Archive Ervin Lehman">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-032" title="Restore Ervin Lehman" aria-label="Restore Ervin Lehman">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD — sometime this fall (Derek, Sep 24)</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Ervin Lehman</div>
+        <div class="ship-to-address">7635 W 700 S, Topeka, IN 46571<br>Phone 260-593-0557 ext 4<br>No email — phone / mail only</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Off-grid solar for 46-cow dairy. Three bundles out:<br><b>SQ-000485 Economy</b> — 13 Longi 620W, Koor 12KW Off-Grid, 32 kWh ($22,965.37)<br><b>SQ-000486 Value</b> — 18 Longi 620W, Koor 12KW All-in-One, 48 kWh, farm + house, strings 6+6+6 ($29,681.74)<br><b>SQ-000487 Premium</b> — 22 Longi 620W, All-in-One, 64 kWh, strings 8+7+7 ($34,276.29)<br>Array, inverter and batteries all at the west well barn. Pull old 6/6/6 URD out of the buried 1-1/4 in pipe, run one single-phase AC feeder back east to gen shed, parlor and house. Labor: 5 crew days.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>All three are still QUOTES in inFlow — no bundle accepted yet. Do not pull material off this card until it turns into a sales order.</li>
+        <li class="warning"><span class="note-cat">Pending</span>TEST-PULL the old URD out of the bends BEFORE ordering — if it won't pull, the plan changes.</li>
+        <li class="condition"><span class="note-cat">Site Condition</span>Roof assumed standing-seam metal and never measured (Premium may not fit). ~400 ft feeder run is a satellite estimate.</li>
+        <li class=""><span class="note-cat">Layout</span>Feeder is fed from both ends — own breaker at EACH end sized to the wire. Gen charge comes back on the same feeder: set ~33 A and label the panel door. Vacuum pump keeps its direct three-phase gen feed.</li>
+        <li class=""><span class="note-cat">Layout</span>One Koor structural base on the bottom of the battery stack (Derek wants it).</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Which bundle — Economy, Value or Premium?</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Phase converter for the 7.5 HP vacuum pump is on none of the quotes — get the pump nameplate if he wants it.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Completed ST-105 — with it on file he pays the pre-tax total.</li>
+        <li class="access"><span class="note-cat">Access</span>No email — call him, or Jo prints and mails.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Sep 24</span>Job added. Derek: install sometime this fall. Three bundles (SQ-000485/486/487) mailed Sep 9; none accepted in inFlow yet.</li>
       </ul>
     </div>
   </div>

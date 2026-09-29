@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">32</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">23</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">32</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">33</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">24</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">33</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1450,6 +1450,65 @@
   </div>
 </div>
 
+  <!-- INST-2026-033 · Leon Miller (Herbs Plus) -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-033" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-033 · SO-001160 / SO-000124</div>
+        <div class="order-name">Leon Miller (Herbs Plus) — service call: shop lights flicker and dim, swap switches</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-033" title="Archive Leon Miller (Herbs Plus)" aria-label="Archive Leon Miller (Herbs Plus)">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-033" title="Restore Leon Miller (Herbs Plus)" aria-label="Restore Leon Miller (Herbs Plus)">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tomorrow">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">Sep 30, 2026 (Wednesday) 9:30 AM — day picked by Claude, move it if needed</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Leon &amp; Christina Miller — Herbs Plus</div>
+        <div class="ship-to-address">61164 Co Rd 41, Middlebury, IN 46540<br>Shop 574-822-7360 · inFlow 574-825-4618<br>Mon-Fri 8-4, Sat 8-12 · email is a fax relay (herbsplus23@ibyfax.com)</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Shop lights flicker and slowly dim. Swap the light switches (Derek). He has 6 new Ensenior ERL-12X-ETL wafer lights from us (SO-001160, 9/23) and a new light in the same spot flickers too — so the light is not the fault. Off-grid shop: Sol-Ark 5K-1P-N 120 V (SO-000124), QO 100 A panel.</div>
+      </div>
+    </div>
+    <div class="stops-list">
+      <div class="stops-label">🚛 Pre-Install Stops</div>
+      <ul>
+        <li><span class="stop-loc">📍 Warehouse bin 4D2</span><span>660WG 15 A single-pole toggle (10 in stock) · PS 663WG 3-way (6) · PS TP1W plates. No dimmer in stock.</span></li>
+      </ul>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>First question on arrival: did he swap the round wafer only, or the wafer AND the gray junction box? The gray box is the driver. New wafer on an old box = same flicker. Swap the whole unit and retest first.</li>
+        <li class=""><span class="note-cat">Layout</span>One spot flickers = connections in that box. Every light on one switch = the switch (dimmer, lighted toggle, timer, motion or smart switch). Whole shop = panel neutral or inverter output.</li>
+        <li class="condition"><span class="note-cat">Site Condition</span>Meter at a flickering box with lights ON: ~120 V steady, neutral-to-ground near 0 V (over 2-3 V = loose neutral). Watch it while the well pump / compressor starts. Check panel neutral bar and the Sol-Ark screen for faults and output volts.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>When does it flicker — gen running, battery low, big load starting, or all the time? Is the switch a dimmer, and does he want to keep dimming (needs an LED-rated dimmer, e.g. Lutron Diva CL)?</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Open since 9/14: gen self-started at 73% SOC with start set to 15%. Pull the two gen start wires at the inverter while there.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val">Derek</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Sep 29</span>Job added from Derek's note. VISIT on Google Calendar Wed Sep 30 9:30 AM. Drive log "2026-09-29 Leon Miller (Herbs Plus) — flickering/dimming shop lights".</li>
+      </ul>
+    </div>
+  </div>
 <div class="empty-state" id="empty-state">No installs in this category.</div>
 
 <div class="archive-section empty" id="archive-section">

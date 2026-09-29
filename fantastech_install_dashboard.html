@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">33</div><div class="label">All Installs</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">34</div><div class="label">All Installs</div></div>
   <div class="summary-card open active" data-filter="open"><div class="num">24</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">33</div><div class="label">Scheduled</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">34</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1509,6 +1509,65 @@
       </ul>
     </div>
   </div>
+  <!-- INST-2026-034 · Aaron J Yoder -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-034" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-034 · no SO yet (old order SO-000220)</div>
+        <div class="order-name">Aaron J Yoder — shop build: insulated box for his 2 batteries — CALL HIM BEFORE BUILDING</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-034" title="Archive Aaron J Yoder" aria-label="Archive Aaron J Yoder">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-034" title="Restore Aaron J Yoder" aria-label="Restore Aaron J Yoder">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD — ON HOLD until Derek calls Aaron. Aaron asked for ASAP.</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Aaron J Yoder</div>
+        <div class="ship-to-address">56006 Co Rd 43, Middlebury, IN 46540<br>574-821-1519 · no email on file</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Build an insulated battery box for his 2 batteries (Derek 9/29: "possible wants box for 2 batteries. Call before building it"). His system from SO-000220 (April 2026): 2 x EcoFlow 12V 100Ah LiFePO4, Victron SmartSolar 100/50, Victron Phoenix 500W 12V inverter, and a Facon 12V 65W RV tank heater pad.</div>
+      </div>
+    </div>
+    <div class="stops-list">
+      <div class="stops-label">🚛 Pre-Install Stops</div>
+      <ul>
+        <li><span class="stop-loc">📍 Warehouse</span><span>inFlow shows 1 x Lithium Battery Box (INSULATED), FT-BAT-0460, no bin set. Not proven it fits 2 of his batteries — check before building a new one.</span></li>
+      </ul>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>DO NOT BUILD until Derek has called Aaron and said go. Nothing gets cut yet.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Does he want the box? For both batteries? Where does it sit (inside or outside, how much room)?</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Heater: does the box get the Facon 65W heater pad he already has from us, and how is it powered and switched?</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Does he pick it up, or do we bring it and set it in?</li>
+        <li class=""><span class="note-cat">Layout</span>His voicemail Sat 9/26 3:32 PM (machine transcript is garbled) mentions an insulated box, the batteries, a heater, and "schedule ASAP, let me know when you can work me in."</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD (warehouse build)</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Sep 29</span>Job added from Derek's note. On hold until Derek calls Aaron. Warehouse emailed a heads-up: do not build yet.</li>
+      </ul>
+    </div>
+  </div>
 <div class="empty-state" id="empty-state">No installs in this category.</div>
 
 <div class="archive-section empty" id="archive-section">
@@ -1519,7 +1578,7 @@
   <div class="archive-list" id="archive-list"></div>
 </div>
 
-<footer>Fantastech Energy Solution LLC · derek@fantastech.org · Updated Sep 22, 2026</footer>
+<footer>Fantastech Energy Solution LLC · derek@fantastech.org · Updated Sep 29, 2026</footer>
 
 <script>
 (function () {

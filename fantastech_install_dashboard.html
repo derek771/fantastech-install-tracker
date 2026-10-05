@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">34</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">24</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">34</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">35</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">25</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">35</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1570,6 +1570,58 @@
     <div class="activity-log">
       <ul class="tl-list">
         <li><span class="tl-date">Sep 29</span>Job added from Derek's note. On hold until Derek calls Aaron. Warehouse emailed a heads-up: do not build yet.</li>
+      </ul>
+    </div>
+  </div>
+  <!-- INST-2026-035 · Jesse L Bontrager -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-035" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-035 · SQ-000578 (no SO yet)</div>
+        <div class="order-name">Jesse L Bontrager (Frys Jams &amp; Jellies) — Koor 12K inverter + 32 kWh Koor battery swap</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-035" title="Archive Jesse L Bontrager" aria-label="Archive Jesse L Bontrager">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-035" title="Restore Jesse L Bontrager" aria-label="Restore Jesse L Bontrager">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner future">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">Oct 7, 2026 (Wednesday) — first thing in the morning</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Jesse L Bontrager</div>
+        <div class="ship-to-address">2165 S 1200W<br>Shipshewana, IN 46565<br>260-768-7538 · frysjandj@gmail.com</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Take out the Magnum MS4448 inverter, both MidNite charge controllers and the 1100-1200 Ah steel case battery bank. Put in 1 Koor 12KW Off-Grid inverter WITHOUT breakers (KR-A12US) and a Koor Active Stack: 1 base, 2 x 314 Ah modules, 1 smart hub (32 kWh). Rewire his 18 x 390 W panels into the Koor. Per SQ-000578.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>SQ-000578 is still a quote. The sales order has to be built before the warehouse pulls anything.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>Photo of the sticker on the back of one 390 W panel (Voc and Isc) - decides 2 strings of 9 or 3 strings of 6. Asked 10/5.</li>
+        <li class=""><span class="note-cat">Layout</span>Leave the 3 x 120 W panels and the 2 small unknown panels off the Koor - they don't match the 390s.</li>
+        <li class=""><span class="note-cat">Layout</span>Possible add-on SQ-000658: 8 x Mate 575 W on a Sinclair rack, string of 8 on PV input 2. Not sent, not accepted - not part of this trip.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val">Matt Borntreger (text Tue night 10/6)</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Oct 5</span>Job added. Derek: schedule first thing in the morning, text Matt Tuesday night. Set for Wed Oct 7.</li>
       </ul>
     </div>
   </div>

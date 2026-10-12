@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">35</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">25</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">35</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">36</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">26</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">36</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1628,7 +1628,57 @@
       </ul>
     </div>
   </div>
-<div class="empty-state" id="empty-state">No installs in this category.</div>
+  <!-- INST-2026-036 &#183; Glen Wingard -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-036" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-036 &#183; no install quote yet (inverter + panels on SO-001238)</div>
+        <div class="order-name">Glen Wingard &#8212; 20 x 620 W panels on a ground rack</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">&#128197; Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-036" title="Archive Glen Wingard" aria-label="Archive Glen Wingard">&#128230; Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-036" title="Restore Glen Wingard" aria-label="Restore Glen Wingard">&#8617; Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">&#128197; Scheduled</div>
+        <div class="sched-date">TBD</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Glen Wingard</div>
+        <div class="ship-to-address">10885 CR 18<br>Middlebury, IN 46540<br>574-536-8332 &#183; wingardglen@yahoo.com</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Install a ground rack with 20 x 620 W panels by his place. He picked up his EG4 12000XP inverter at the shop Oct 12.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">&#128221; Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>If this waits too long he may install the rack himself. Call him before sending a crew.</li>
+        <li class="warning"><span class="note-cat">Pending</span>Panel count: Derek says 20. The rack quotes on file are 16 (SQ-000652) and 24 (SQ-000653), and SO-001238 has 24 panels. No 20-panel rack or labor line built yet.</li>
+        <li class=""><span class="note-cat">Layout</span>Existing system: 3 x 48 V lithium batteries (may add a 4th) and 390 W panels.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '\u25B2 Hide Activity' : '\u25BC Activity Log'">&#9660; Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Oct 12</span>Job added. Glen picked up his 12000XP and asked to go on the install list for a 20-panel 620 W rack. Date TBD. He may do it himself if the wait is long.</li>
+      </ul>
+    </div>
+  </div><div class="empty-state" id="empty-state">No installs in this category.</div>
 
 <div class="archive-section empty" id="archive-section">
   <div class="archive-header" id="archive-header">

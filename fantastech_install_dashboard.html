@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">36</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">26</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">36</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">37</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">27</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">37</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -1683,7 +1683,61 @@
         <li><span class="tl-date">Oct 15</span>Fixed: the 12000XP was already sold on SO-001266 (paid), so the Oct 12 pickup on SO-001238 was undone and the inverter line taken off. SO-001238 is now 20 panels, $3,916.20.</li>
       </ul>
     </div>
-  </div><div class="empty-state" id="empty-state">No installs in this category.</div>
+  </div>  <!-- INST-2026-037 &#183; Jerry Miller -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-037" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-037 &#183; SO-001295</div>
+        <div class="order-name">Jerry Miller (J &amp; R Woodworking) &#8212; add 8 Pytes batteries + hotspot</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">&#128197; Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-037" title="Archive Jerry Miller" aria-label="Archive Jerry Miller">&#128230; Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-037" title="Restore Jerry Miller" aria-label="Restore Jerry Miller">&#8617; Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">&#128197; Scheduled</div>
+        <div class="sched-date">TBD</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Jerry Miller</div>
+        <div class="ship-to-address">4235 W 200 N<br>LaGrange, IN 46761<br>(260) 463-4257 &#183; jr@jrwoodworkingllc.com</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Set a second insulated battery box (with 120 V heater pad) and tie 8 more Pytes 48V 100Ah into his bank on the EG4 12kPV - 16 batteries, about 82 kWh. Same EG4 settings. Set up the SIMO Solis Lite 4G hotspot so his system can be checked online.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">&#128221; Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>Read the revision label on his first 8 Pytes. B revision = 8 max in one chain. Take one Pytes Battery Hub (bin 2A4); it goes on SO-001295 at $0 only if used.</li>
+        <li class=""><span class="note-cat">Layout</span>Tie all 16 with the 600A 12-stud red &amp; black bus bar kit (bin 3B2) - on the SO at no charge.</li>
+        <li class="condition"><span class="note-cat">Site Condition</span>Oct 14 his batteries ran low and the generator was running. Check the EG4 history while there.</li>
+        <li class="preference"><span class="note-cat">Ask Customer</span>What model is the freeze dryer? (asked Oct 3, no answer) - confirm on arrival</li>
+      </ul>
+    </div>
+    <div class="pick-list"><div class="pick-label">&#128230; Materials / BOM</div><table class="pick-table"><tr><th class="check"></th><th>Item</th><th>Qty</th></tr><tr><td class="check"><input type="checkbox"></td><td>Pytes 48V 100Ah (48100R) - bin 7B2</td><td class="qty">8</td></tr><tr><td class="check"><input type="checkbox"></td><td>Lithium Battery Box (INSULATED) FT-BAT-0460</td><td class="qty">1</td></tr><tr><td class="check"><input type="checkbox"></td><td>Kohree 120V heater pad FT-RCP-0030 - bin 3B3</td><td class="qty">1</td></tr><tr><td class="check"><input type="checkbox"></td><td>600A 12-stud bus bar kit 1503017 - bin 3B2</td><td class="qty">1</td></tr><tr><td class="check"><input type="checkbox"></td><td>SIMO Solis Lite 4G hotspot - bin 4B1 / 4D5</td><td class="qty">1</td></tr><tr><td class="check"><input type="checkbox"></td><td>Battery cables and lugs (Wire &amp; Misc)</td><td class="qty">1</td></tr></table></div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '\u25B2 Hide Activity' : '\u25BC Activity Log'">&#9660; Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Oct 15</span>Jerry confirmed. Quote SQ-000647 turned into SO-001295. Hotspot added.</li>
+        <li><span class="tl-date">Oct 16</span>Job added. Bus bars + heater pad added at no charge. Address fixed to 4235 W 200 N (Jerry's Oct 5 correction). EG4 dongle skipped. Date TBD.</li>
+      </ul>
+    </div>
+  </div>
+<div class="empty-state" id="empty-state">No installs in this category.</div>
 
 <div class="archive-section empty" id="archive-section">
   <div class="archive-header" id="archive-header">

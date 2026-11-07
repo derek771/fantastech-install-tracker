@@ -216,9 +216,9 @@
 
 <div class="filter-hint">Filter by status — click a card</div>
 <div class="summary-bar">
-  <div class="summary-card all" data-filter="all"><div class="num">40</div><div class="label">All Installs</div></div>
-  <div class="summary-card open active" data-filter="open"><div class="num">30</div><div class="label">Not Done</div></div>
-  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">40</div><div class="label">Scheduled</div></div>
+  <div class="summary-card all" data-filter="all"><div class="num">41</div><div class="label">All Installs</div></div>
+  <div class="summary-card open active" data-filter="open"><div class="num">31</div><div class="label">Not Done</div></div>
+  <div class="summary-card scheduled" data-filter="scheduled"><div class="num">41</div><div class="label">Scheduled</div></div>
   <div class="summary-card materials-ready" data-filter="materials-ready"><div class="num">0</div><div class="label">Materials Ready</div></div>
   <div class="summary-card in-progress" data-filter="in-progress"><div class="num">0</div><div class="label">In Progress</div></div>
   <div class="summary-card punch-list" data-filter="punch-list"><div class="num">0</div><div class="label">Punch List</div></div>
@@ -2228,6 +2228,59 @@
     <div class="activity-log">
       <ul class="tl-list">
         <li><span class="tl-date">Oct 31</span>Job added. Derek: Mervin says the construction workers are getting started. Call Monday Nov 2 for an update.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- INST-2026-047 · Steve E Miller -->
+  <div class="order-card scheduled" data-inst-id="INST-2026-047" data-status="scheduled">
+    <div class="card-top">
+      <div class="card-top-left">
+        <div class="order-num">INST-2026-047 · Service visit (no SO)</div>
+        <div class="order-name">Steve E Miller</div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-scheduled">📅 Scheduled</span>
+        <button type="button" class="archive-btn" data-id="INST-2026-047" title="Archive Steve E Miller" aria-label="Archive Steve E Miller">📦 Archive</button>
+        <button type="button" class="restore-btn" data-id="INST-2026-047" title="Restore Steve E Miller" aria-label="Restore Steve E Miller">↩ Restore</button>
+      </div>
+    </div>
+    <div class="schedule-banner tbd">
+      <div>
+        <div class="sched-label">📅 Scheduled</div>
+        <div class="sched-date">TBD - set it with Steve and Mr Wrench (same day, gen tech on site)</div>
+      </div>
+    </div>
+    <div class="ship-to">
+      <div class="ship-to-block">
+        <div class="ship-to-label">Site</div>
+        <div class="ship-to-name">Steve E Miller</div>
+        <div class="ship-to-address">3550 W 400 S<br>LaGrange, IN 46761<br>(260) 593-0333</div>
+      </div>
+      <div class="ship-to-block" style="flex:1;min-width:240px">
+        <div class="ship-to-label">Scope</div>
+        <div class="ship-to-address">Service trip: 3 Sol-Ark 12K (3 phase) + Kubota gen on the GRID port. The master inverter trips F18 when it takes the gen (8 times 11/3-11/6, house goes dark). Photo every settings screen on all 3, meter the gen warm with GRID breakers OFF, then 3 short tests: warm gen, real auto start, auto start with breakers held off 3 min. CHANGE NOTHING unless Derek says. Full steps: Drive "2026-11-06 STEVE E MILLER 3 PHASE - FABLE ROOT CAUSE.md", section C.</div>
+      </div>
+    </div>
+    <div class="site-notes">
+      <div class="site-notes-label">📝 Site Notes</div>
+      <ul>
+        <li class="warning"><span class="note-cat">Pending</span>Date not set. Mr Wrench (Mr. Wrench DD LLC, Shipshewana, 260-768-4216) is working on the gen - he should be there for the gen meter steps.</li>
+        <li class="warning"><span class="note-cat">Pending</span>Any setting change (Start %, Grid A, reconnect time, Peak Shaving) needs Derek's yes first. The house is off-grid and live.</li>
+        <li class=""><span class="note-cat">Bring</span>Meter that reads Hz, phone for screen photos, 5mm T-hex key for GRID/LOAD terminals.</li>
+        <li class="condition"><span class="note-cat">Site Condition</span>Each failed gen connect blacks out the house for a few minutes - tell Steve before each test.</li>
+      </ul>
+    </div>
+    <div class="crew-row">
+      <div class="crew-field">
+        <div class="crew-label">Crew</div>
+        <div class="crew-val tbd">TBD</div>
+      </div>
+    </div>
+    <div class="activity-toggle" onclick="this.nextElementSibling.classList.toggle('open'); this.textContent = this.nextElementSibling.classList.contains('open') ? '▲ Hide Activity' : '▼ Activity Log'">▼ Activity Log</div>
+    <div class="activity-log">
+      <ul class="tl-list">
+        <li><span class="tl-date">Nov 6</span>Job added. Derek said yes to one site trip with Mr Wrench and the crew to find why the master trips F18 on the gen.</li>
       </ul>
     </div>
   </div>
